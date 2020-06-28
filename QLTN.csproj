@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO.cs" />
+    <Compile Include="FrmBaoCaoThuTienNha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaoCaoThuTienNha.Designer.cs">
+      <DependentUpon>FrmBaoCaoThuTienNha.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCoquan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,12 @@
     </Compile>
     <Compile Include="frmHinhthucthanhtoan.Designer.cs">
       <DependentUpon>frmHinhthucthanhtoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHopdong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHopdong.Designer.cs">
+      <DependentUpon>frmHopdong.cs</DependentUpon>
     </Compile>
     <Compile Include="frmKhachthue.cs">
       <SubType>Form</SubType>
@@ -102,6 +114,12 @@
     <Compile Include="frmNghenghiep.Designer.cs">
       <DependentUpon>frmNghenghiep.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNhaChuaThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNhaChuaThanhToan.Designer.cs">
+      <DependentUpon>FrmNhaChuaThanhToan.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNha_Taisan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,14 +138,41 @@
     <Compile Include="frmThuenha.Designer.cs">
       <DependentUpon>frmThuenha.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThutiennha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThutiennha.Designer.cs">
+      <DependentUpon>frmThutiennha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTimKiemKhach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTimKiemKhach.Designer.cs">
+      <DependentUpon>FrmTimKiemKhach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTimKiemNha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTimKiemNha.Designer.cs">
+      <DependentUpon>FrmTimKiemNha.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTranha.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTranha.Designer.cs">
       <DependentUpon>frmTranha.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTranha_Mattaisan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTranha_Mattaisan.Designer.cs">
+      <DependentUpon>frmTranha_Mattaisan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmBaoCaoThuTienNha.resx">
+      <DependentUpon>FrmBaoCaoThuTienNha.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCoquan.resx">
       <DependentUpon>frmCoquan.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHinhthucthanhtoan.resx">
       <DependentUpon>frmHinhthucthanhtoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHopdong.resx">
+      <DependentUpon>frmHopdong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmKhachthue.resx">
       <DependentUpon>frmKhachthue.cs</DependentUpon>
@@ -155,6 +203,9 @@
     <EmbeddedResource Include="frmNghenghiep.resx">
       <DependentUpon>frmNghenghiep.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmNhaChuaThanhToan.resx">
+      <DependentUpon>FrmNhaChuaThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNha_Taisan.resx">
       <DependentUpon>frmNha_Taisan.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,8 +215,20 @@
     <EmbeddedResource Include="frmThuenha.resx">
       <DependentUpon>frmThuenha.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmThutiennha.resx">
+      <DependentUpon>frmThutiennha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTimKiemKhach.resx">
+      <DependentUpon>FrmTimKiemKhach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTimKiemNha.resx">
+      <DependentUpon>FrmTimKiemNha.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTranha.resx">
       <DependentUpon>frmTranha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTranha_Mattaisan.resx">
+      <DependentUpon>frmTranha_Mattaisan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -175,6 +238,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -189,6 +253,37 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\dấu cộng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

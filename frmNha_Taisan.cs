@@ -26,10 +26,6 @@ namespace QLTN
             fillDataToComboTaisan();
             DAO.CloseConnection();
             cmbTaisan.Text = "";
-            cmbTaisan.Enabled = false;
-            txtTinhtrang.Enabled = false;
-            txtSoluong.Enabled = false;
-            txtGiatri.Enabled = false;
             cmbManha.Text = "";
         }
 
@@ -50,7 +46,7 @@ namespace QLTN
             adapter.Fill(table);
             cmbManha.DataSource = table;
             cmbManha.ValueMember = "Manha";
-            cmbManha.DisplayMember = "Tenchunha";
+            cmbManha.DisplayMember = "Manha";
         }
 
         public void fillDataToComboTaisan()
@@ -81,32 +77,17 @@ namespace QLTN
 
         private void gridviewNha_taisan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string sql;
+            string sql,sql1;
             sql = "Select Tenchunha From tblDanhMucNha Where Manha = N'" + gridviewNha_taisan.CurrentRow.Cells["Manha"].Value.ToString() + "'";
-            cmbManha.Text = DAO.GetFieldValues(sql); 
-            cmbTaisan.Text = gridviewNha_taisan.CurrentRow.Cells["Mataisan"].Value.ToString();
+            cmbManha.Text = DAO.GetFieldValues(sql);
+            sql1 = "Select Tentaisan From tblTaiSan Where Mataisan = N'" + gridviewNha_taisan.CurrentRow.Cells["Mataisan"].Value.ToString() + "'";
+            cmbTaisan.Text = DAO.GetFieldValues(sql1);
             txtSoluong.Text = gridviewNha_taisan.CurrentRow.Cells["Soluong"].Value.ToString();
             txtGiatri.Text = gridviewNha_taisan.CurrentRow.Cells["Giatri"].Value.ToString();
             txtTinhtrang.Text = gridviewNha_taisan.CurrentRow.Cells["Tinhtrang"].Value.ToString();
         }
 
-        private void btnThemmoinha_Click(object sender, EventArgs e)
-        {
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
-            btnLuu.Enabled = true;
-            btnThem.Enabled = false;
-            cmbTaisan.Enabled = true;
-            txtTinhtrang.Enabled = true;
-            txtSoluong.Enabled = true;
-            txtGiatri.Enabled = true;
-            ResetValue();
-            cmbManha.SelectedIndex = -1;
-            cmbManha.Enabled = true;
-            cmbTaisan.Focus();
-        }
-
-        private void btnThemmoiTS_Click(object sender, EventArgs e)
+        private void btnThem_Click(object sender, EventArgs e)
         {
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
@@ -120,12 +101,119 @@ namespace QLTN
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-
+            //Kiem tra DL
+            //Các trường không được trống
+            if (cmbManha.SelectedIndex == -1)
+            {
+                MessageBox.Show("Bạn chưa chọn nhà!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (cmbTaisan.SelectedIndex == -1)
+            {
+                    MessageBox.Show("Bạn chưa chọn tài sản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+            }
+            if (txtGiatri.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtGiatri.Focus();
+                return;
+            }
+            if (txtSoluong.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập số lượng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSoluong.Focus();
+                return;
+            }
+            if (txtTinhtrang.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập tình trạng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTinhtrang.Focus();
+                return;
+            }
+            //
+            string sql = "select * from tblNha_TaiSan where Manha='" + cmbManha.SelectedValue.ToString() + "' and Mataisan='" + cmbTaisan.SelectedValue.ToString() + "'";
+            DAO.OpenConnection();
+            if (DAO.CheckKeyExit(sql))
+            {
+                MessageBox.Show("Tài sản này đã tồn tại trong nhà bạn chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DAO.CloseConnection();
+                cmbManha.Focus();
+                return;
+            }
+            else
+            {
+                sql = "insert into tblNha_TaiSan (Manha,Mataisan,Soluong,Giatri,Tinhtrang) " +
+                    " values ('" + cmbManha.SelectedValue.ToString() + "','" + cmbTaisan.SelectedValue.ToString() + "',"
+                    + txtSoluong.Text.Trim() + "," + txtGiatri.Text.Trim() + ",N'" + txtTinhtrang.Text.Trim() + "')";
+                SqlCommand cmd = new SqlCommand(sql, DAO.con);
+                cmd.ExecuteNonQuery();
+                DAO.CloseConnection();
+                loadDataGridView();
+            }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình không?", "Hỏi Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                this.Close();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn xóa?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                string sql = "delete from tblNha_TaiSan where Manha = '" + cmbManha.SelectedValue.ToString() + "' and Mataisan='" + cmbTaisan.SelectedValue.ToString() + "'";
+                DAO.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = DAO.con;
+                cmd.ExecuteNonQuery();
+                DAO.CloseConnection();
+                loadDataGridView();
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (cmbManha.SelectedIndex == -1)
+            {
+                MessageBox.Show("Bạn chưa chọn nhà!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (cmbTaisan.SelectedIndex == -1)
+            {
+                    MessageBox.Show("Bạn chưa chọn tài sản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+            }
+            if (txtGiatri.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtGiatri.Focus();
+                return;
+            }
+            if (txtSoluong.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập số lượng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSoluong.Focus();
+                return;
+            }
+            if (txtTinhtrang.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập tình trạng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTinhtrang.Focus();
+                return;
+            }
+            string sql = "update tblNha_TaiSan set Soluong = " + txtSoluong.Text.Trim() + ", Giatri=" + txtGiatri.Text.Trim()
+                + ", Tinhtrang=N'" + txtTinhtrang.Text.Trim() + " ' where Manha = '" + cmbManha.SelectedValue.ToString() 
+                + "' and Mataisan='" + cmbTaisan.SelectedValue.ToString() + "'";
+            DAO.OpenConnection();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = sql;
+            cmd.Connection = DAO.con;
+            cmd.ExecuteNonQuery();
+            loadDataGridView();
+            DAO.CloseConnection();
         }
     }
 }

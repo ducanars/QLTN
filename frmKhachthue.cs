@@ -80,8 +80,11 @@ namespace QLTN
             else chkGioitinh.Checked = false;
             txtSoCMND.Text = gridviewKhachthue.CurrentRow.Cells["SoCMND"].Value.ToString();
             txtDiachithuongtru.Text = gridviewKhachthue.CurrentRow.Cells["Diachithuongtru"].Value.ToString();
-            cmbManghe.Text = gridviewKhachthue.CurrentRow.Cells["Manghe"].Value.ToString();
-            cmbMaCQ.Text = gridviewKhachthue.CurrentRow.Cells["MaCQ"].Value.ToString();
+            string sql,sq;
+            sql = "Select Tennghe From tblNgheNghiep Where Manghe = N'" + gridviewKhachthue.CurrentRow.Cells["Manghe"].Value.ToString() + "'";
+            cmbManghe.Text = DAO.GetFieldValues(sql);
+            sq = "Select TenCQ From tblCoQuan Where MaCQ = N'" + gridviewKhachthue.CurrentRow.Cells["MaCQ"].Value.ToString() + "'";
+            cmbMaCQ.Text = DAO.GetFieldValues(sq);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -144,10 +147,19 @@ namespace QLTN
             }
             string sql = "select * from tblKhachThue where Makhach = '" +
             txtMakhach.Text.Trim() + "'";
+            string sq = "select * from tblKhachThue where SoCMND = '" +
+            txtSoCMND.Text.Trim() + "'";
             DAO.OpenConnection();
             if (DAO.CheckKeyExit(sql))
             {
                 MessageBox.Show("Mã khách đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMakhach.Focus();
+                DAO.CloseConnection();
+                return;
+            }
+            if (DAO.CheckKeyExit(sq))
+            {
+                MessageBox.Show("Số CMND đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMakhach.Focus();
                 DAO.CloseConnection();
                 return;
@@ -161,7 +173,6 @@ namespace QLTN
                     gt + "',N'" + txtSoCMND.Text.Trim() + "',N'" + txtDiachithuongtru.Text.Trim() + 
                     "','" + cmbManghe.SelectedValue.ToString() + "','" + cmbMaCQ.SelectedValue.ToString() + "')";
                 SqlCommand cmd = new SqlCommand(sql, DAO.con);
-                MessageBox.Show(sql);
                 cmd.ExecuteNonQuery();
                 loadDataGridView();
                 fillDataToComboNghenghiep();
@@ -221,10 +232,10 @@ namespace QLTN
             else
                 gt = "Nữ";
             sql = "UPDATE tblKhachThue SET  Tenkhach=N'" + txtTenkhach.Text.Trim().ToString() +
-                    "',Ngaysinh =N'" + DAO.ConvertDateTime(dtpNgaysinh.Value.ToString("dd/MM/yyyy")) + "',Gioitinh=N'" + gt +
+                    "',Ngaysinh =N'" + DAO.ConvertDateTime(dtpNgaysinh.Value.ToString("MM/dd/yyyy")) + "',Gioitinh=N'" + gt +
                     "',SoCMND='" + txtSoCMND.Text.Trim() + "',Diachithuongtru=N'" + txtDiachithuongtru.Text.Trim() +
-                    "',Manghe='" + cmbManghe.Text.Trim() + "',MaCQ='" + cmbMaCQ.Text.Trim() +
-                    "' WHERE Makhach=N'" + txtMakhach.Text + "'";
+                    "',Manghe='" + cmbManghe.SelectedValue.ToString() + "',MaCQ='" + cmbMaCQ.SelectedValue.ToString() +
+                    "' WHERE Makhach=N'" + txtMakhach.Text.Trim() + "'";
             DAO.OpenConnection();
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = sql;
@@ -251,7 +262,8 @@ namespace QLTN
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình không?", "Hỏi Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                this.Close();
         }
     }
 }

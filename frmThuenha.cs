@@ -27,11 +27,16 @@ namespace QLTN
             fillDataToComboMucdich();
             fillDataToComboHinhthuc();
             DAO.CloseConnection();
+            cmbKhach.Text = "";
+            cmbNha.Text = "";
+            cmbMucdich.Text = "";
+            cmbHinhthucthanhtoan.Text = "";
+           // cmbNha.SelectedIndexChanged += cmbNha_SelectedIndexChanged;
         }
 
         private void loadDataGridView()
         {
-            string sql = "select * from tblThueNha";
+            string sql = "select * from tblThueNha ";
             SqlDataAdapter adapter = new SqlDataAdapter(sql, DAO.con);
             DataTable table = new DataTable();
             adapter.Fill(table);
@@ -51,13 +56,13 @@ namespace QLTN
 
         public void fillDataToComboDanhmucnha()
         {
-            string sql = "Select * from tblDanhMucNha";
+            string sql = "Select * from tblDanhMucNha where Dathue=N'Chưa cho thuê'" ;
             SqlDataAdapter adapter = new SqlDataAdapter(sql, DAO.con);
             DataTable table = new DataTable();
             adapter.Fill(table);
             cmbNha.DataSource = table;
             cmbNha.ValueMember = "Manha";
-            cmbNha.DisplayMember = "Tenchunha";
+            cmbNha.DisplayMember = "Manha";
         }
 
         public void fillDataToComboMucdich()
@@ -97,18 +102,22 @@ namespace QLTN
         private void gridviewThuenha_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtMasothue.Text = gridviewThuenha.CurrentRow.Cells["Masothue"].Value.ToString();
-            cmbKhach.Text = gridviewThuenha.CurrentRow.Cells["Makhach"].Value.ToString();
+            string sql, sql1,sql2;
+            sql = "Select Tenkhach From tblKhachThue Where Makhach = N'" + gridviewThuenha.CurrentRow.Cells["Makhach"].Value.ToString() + "'";
+            cmbKhach.Text = DAO.GetFieldValues(sql);           
             cmbNha.Text = gridviewThuenha.CurrentRow.Cells["Manha"].Value.ToString();
-            cmbMucdich.Text = gridviewThuenha.CurrentRow.Cells["MamucdichSD"].Value.ToString();
+            sql1 = "Select TenmucdichSD From tblMucDichSuDung Where MamucdichSD = N'" + gridviewThuenha.CurrentRow.Cells["MamucdichSD"].Value.ToString() + "'";
+            cmbMucdich.Text = DAO.GetFieldValues(sql1);
             dtpNgaybatdau.Text = gridviewThuenha.CurrentRow.Cells["NgayBD"].Value.ToString();
             dtpNgayketthuc.Text = gridviewThuenha.CurrentRow.Cells["NgayKT"].Value.ToString();
-            cmbHinhthucthanhtoan.Text = gridviewThuenha.CurrentRow.Cells["MahinhthucTT"].Value.ToString();
+            txtTiendatcoc.Text = gridviewThuenha.CurrentRow.Cells["Tiendatcoc"].Value.ToString();
+            sql2 = "Select TenhinhthucTT From tblHinhThucThanhToan Where MahinhthucTT = N'" + gridviewThuenha.CurrentRow.Cells["MahinhthucTT"].Value.ToString() + "'";
+            cmbHinhthucthanhtoan.Text = DAO.GetFieldValues(sql2);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             btnSua.Enabled = false;
-            btnXoa.Enabled = false;
             btnLuu.Enabled = true;
             btnThem.Enabled = false;
             ResetValue();
@@ -175,10 +184,9 @@ namespace QLTN
             else
             {
                 sql = "insert into  tblThueNha (Masothue, Makhach,Manha,MamucdichSD,NgayBD,NgayKT,Tiendatcoc,MahinhthucTT)" +
-                    " values ('" + txtMasothue.Text.Trim() + "','"
-                    + cmbKhach.SelectedValue.ToString() + "', '" + cmbNha.SelectedValue.ToString() + "','" +
-                    cmbMucdich.SelectedValue.ToString() + "',N'" + DAO.ConvertDateTime(dtpNgaybatdau.Text.ToString()) 
-                    + "',N'" + DAO.ConvertDateTime(dtpNgayketthuc.Text.ToString()) +
+                    " values ('" + txtMasothue.Text.Trim() + "','" + cmbKhach.SelectedValue.ToString() + "', '" 
+                    + cmbNha.SelectedValue.ToString() + "','" + cmbMucdich.SelectedValue.ToString() + "',N'" 
+                    + DAO.ConvertDateTime(dtpNgaybatdau.Text.ToString()) + "',N'" + DAO.ConvertDateTime(dtpNgayketthuc.Text.ToString()) +
                     "','" + txtTiendatcoc.Text.Trim() + "','" + cmbHinhthucthanhtoan.SelectedValue.ToString() + "')";
                 SqlCommand cmd = new SqlCommand(sql, DAO.con);
                 MessageBox.Show(sql);
@@ -242,10 +250,10 @@ namespace QLTN
                 cmbHinhthucthanhtoan.Focus();
                 return;
             }
-            sql = "UPDATE tblThueNha SET  Makhach='" + cmbKhach.Text.Trim() + "',Manha =N'" + cmbNha.Text.Trim() + "',MamucdichSD='" 
-                + cmbMucdich.Text.Trim() + "',NgayBD=N'" + DAO.ConvertDateTime(dtpNgaybatdau.Value.ToString("dd/MM/yyyy")) + 
-                "',NgayKT=N'" + DAO.ConvertDateTime(dtpNgayketthuc.Value.ToString("dd/MM/yyyy")) + "',Tiendatcoc='" 
-                + txtTiendatcoc.Text.Trim() + "',MahinhthucTT='" + cmbHinhthucthanhtoan.Text.Trim() + "' WHERE Masothue='" + txtMasothue.Text + "'";
+            sql = "UPDATE tblThueNha SET  Makhach='" + cmbKhach.SelectedValue.ToString() + "',Manha =N'" + cmbNha.SelectedValue.ToString() + "',MamucdichSD='" 
+                + cmbMucdich.SelectedValue.ToString() + "',NgayBD=N'" + DAO.ConvertDateTime(dtpNgaybatdau.Value.ToString("MMt/dd/yyyy")) + 
+                "',NgayKT=N'" + DAO.ConvertDateTime(dtpNgayketthuc.Value.ToString("MM/dd/yyyy")) + "',Tiendatcoc='" 
+                + txtTiendatcoc.Text.Trim() + "',MahinhthucTT='" + cmbHinhthucthanhtoan.SelectedValue.ToString() + "' WHERE Masothue='" + txtMasothue.Text + "'";
             DAO.OpenConnection();
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = sql;
@@ -255,24 +263,26 @@ namespace QLTN
             DAO.CloseConnection();
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có muốn xóa?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-            {
-                string sql = "delete from tblThueNha where Makhach = '" + txtMasothue.Text + "'";
-                DAO.OpenConnection();
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = sql;
-                cmd.Connection = DAO.con;
-                cmd.ExecuteNonQuery();
-                DAO.CloseConnection();
-                loadDataGridView();
-            }
-        }
-
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình không?", "Hỏi Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                this.Close();
+        }
+
+        private void cmbNha_SelectedIndexChanged(object sender, EventArgs e)
+        { 
+            if (cmbNha.SelectedIndex != -1)
+            {
+                double dg;
+                string str;
+                str = "select a.Dongiathue from tblDanhMucNha as a join tblThueNha as b  on a.Manha=b.Manha where b.Manha='" + cmbNha.SelectedValue.ToString() + "' ";
+                DAO.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = str;
+                cmd.Connection = DAO.con;
+                 dg = Convert.ToDouble(DAO.GetFieldValues(str));
+                txtTiendatcoc.Text = dg.ToString();
+            }
         }
     }
 }

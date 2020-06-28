@@ -25,6 +25,8 @@ namespace QLTN
             fillDataToComboLoainha();
             fillDataToComboDoituongsudung();
             DAO.CloseConnection();
+            cmbLoainha.Text = "";
+            cmbDoituongsudung.Text = "";
         }
 
         private void loadDataGridView()
@@ -77,12 +79,15 @@ namespace QLTN
             txtManha.Text = gridviewDanhmucnha.CurrentRow.Cells["Manha"].Value.ToString();
             txtTenchunha.Text = gridviewDanhmucnha.CurrentRow.Cells["Tenchunha"].Value.ToString();
             txtDienthoai.Text = gridviewDanhmucnha.CurrentRow.Cells["Dienthoai"].Value.ToString();
-            cmbLoainha.Text = gridviewDanhmucnha.CurrentRow.Cells["Maloai"].Value.ToString();
-            cmbDoituongsudung.Text = gridviewDanhmucnha.CurrentRow.Cells["MaDTSD"].Value.ToString();
+            string sql1,sql2;
+            sql1 = "Select Tenloai From tblLoaiNha Where Maloai = N'" + gridviewDanhmucnha.CurrentRow.Cells["Maloai"].Value.ToString() + "'";
+            cmbLoainha.Text = DAO.GetFieldValues(sql1);
+            sql2 = "Select TenDTSD From tblDoiTuongSudung Where MaDTSD = N'" + gridviewDanhmucnha.CurrentRow.Cells["MaDTSD"].Value.ToString() + "'";
+            cmbDoituongsudung.Text = DAO.GetFieldValues(sql2);
             txtDiachi.Text = gridviewDanhmucnha.CurrentRow.Cells["Diachi"].Value.ToString();
             txtDongiathue.Text = gridviewDanhmucnha.CurrentRow.Cells["Dongiathue"].Value.ToString();
             txtTinhtrang.Text = gridviewDanhmucnha.CurrentRow.Cells["Tinhtrang"].Value.ToString();
-            if (gridviewDanhmucnha.CurrentRow.Cells["Dathue"].Value.ToString() == "Nam") chkDathue.Checked = true;
+            if (gridviewDanhmucnha.CurrentRow.Cells["Dathue"].Value.ToString() == "Chưa cho thuê") chkDathue.Checked = true;
             else chkDathue.Checked = false;
             txtGhichu.Text = gridviewDanhmucnha.CurrentRow.Cells["Ghichu"].Value.ToString();
         }
@@ -109,41 +114,41 @@ namespace QLTN
             }*/
             if (txtTenchunha.Text == "")
             {
-                MessageBox.Show("Bạn không được để trống tên chủ nhà");
+                MessageBox.Show("Bạn không được để trống tên chủ nhà", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTenchunha.Focus();
                 return;
             }
             if (txtDienthoai.Text == "")
             {
-                MessageBox.Show("Bạn không được để trống số điện thoại");
+                MessageBox.Show("Bạn không được để trống số điện thoại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDienthoai.Focus();
                 return;
             }
             if (cmbLoainha.SelectedIndex == -1)
             {
-                MessageBox.Show("Bạn chưa chọn loại nhà ");
+                MessageBox.Show("Bạn chưa chọn loại nhà ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (cmbDoituongsudung.SelectedIndex == -1)
             {
-                MessageBox.Show("Bạn chưa chọn đối tượng sử dụng");
+                MessageBox.Show("Bạn chưa chọn đối tượng sử dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (txtDiachi.Text == "")
             {
-                MessageBox.Show("Bạn không được để trống địa chỉ");
+                MessageBox.Show("Bạn không được để trống địa chỉ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDiachi.Focus();
                 return;
             }
             if (txtDongiathue.Text == "")
             {
-                MessageBox.Show("Bạn không được để trống đơn giá thuê");
+                MessageBox.Show("Bạn không được để trống đơn giá thuê", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDongiathue.Focus();
                 return;
             }
             if (txtTinhtrang.Text == "")
             {
-                MessageBox.Show("Bạn không được để trống tình trạng phòng");
+                MessageBox.Show("Bạn không được để trống tình trạng phòng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTinhtrang.Focus();
                 return;
             }
@@ -153,7 +158,7 @@ namespace QLTN
                 dt = "Đã cho thuê";
             if (txtGhichu.Text == "")
             {
-                MessageBox.Show("Bạn không được để trống ghi chú");
+                MessageBox.Show("Bạn không được để trống ghi chú", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtGhichu.Focus();
                 return;
             }
@@ -161,10 +166,19 @@ namespace QLTN
             
             string sql = "select * from tblDanhMucNha where Manha = '" +
             txtManha.Text.Trim() + "'";
+            string sq = "select * from tblDanhMucNha where Dienthoai = '" +
+            txtManha.Text.Trim() + "'";
             DAO.OpenConnection();
             if (DAO.CheckKeyExit(sql))
             {
-                MessageBox.Show("Mã nhà đã tồn tại");
+                MessageBox.Show("Mã nhà đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtManha.Focus();
+                DAO.CloseConnection();
+                return;
+            }
+            if (DAO.CheckKeyExit(sq))
+            {
+                MessageBox.Show("Số điện thoại đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtManha.Focus();
                 DAO.CloseConnection();
                 return;
@@ -179,13 +193,11 @@ namespace QLTN
                     + "',N'" + txtDiachi.Text.Trim() + "','" + txtDongiathue.Text.Trim() + "',N'" + txtTinhtrang.Text.Trim() 
                     + "',N'" + dt + "',N'"+ txtGhichu.Text.Trim() + "')";
                 SqlCommand cmd = new SqlCommand(sql, DAO.con);
-                MessageBox.Show(sql);
                 cmd.ExecuteNonQuery();
                 loadDataGridView();
                 fillDataToComboLoainha();
                 fillDataToComboDoituongsudung();
                 DAO.CloseConnection();
-
             }
         }
 
@@ -244,11 +256,17 @@ namespace QLTN
                 dt = "Chưa cho thuê";
             else
                 dt = "Đã cho thuê";
+            if (txtGhichu.Text == "")
+            {
+                MessageBox.Show("Bạn phải nhập ghi chú", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtGhichu.Focus();
+                return;
+            }
             sql = "UPDATE tblDanhMucNha SET  Tenchunha=N'" + txtTenchunha.Text.Trim().ToString() +
-                    "',Dienthoai ='" + txtDienthoai.Text.Trim() + "',Maloai='" + cmbLoainha.Text.Trim() + "',MaDTSD='" 
-                    + cmbDoituongsudung.Text.Trim() +  "',Diachi=N'" + txtDiachi.Text.Trim() + "',Dongiathue='" 
+                    "',Dienthoai ='" + txtDienthoai.Text.Trim() + "',Maloai='" + cmbLoainha.SelectedValue.ToString() + "',MaDTSD='" 
+                    + cmbDoituongsudung.SelectedValue.ToString() +  "',Diachi=N'" + txtDiachi.Text.Trim() + "',Dongiathue='" 
                     + txtDongiathue.Text.Trim() + "',Tinhtrang=N'" + txtTinhtrang.Text.Trim() + "',Dathue=N'" + 
-                    dt + "',Ghichu='" + txtGhichu.Text.Trim() + "' WHERE Manha='" + txtManha.Text + "'";
+                    dt + "',Ghichu='" + txtGhichu.Text.Trim() + "' WHERE Manha='" + txtManha.Text.Trim() + "'";
             DAO.OpenConnection();
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = sql;
@@ -275,7 +293,8 @@ namespace QLTN
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình không?", "Hỏi Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                this.Close();
         }
     }
 }

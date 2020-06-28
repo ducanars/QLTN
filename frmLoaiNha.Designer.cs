@@ -36,14 +36,14 @@
             this.txtTenloai = new System.Windows.Forms.TextBox();
             this.txtMaloai = new System.Windows.Forms.TextBox();
             this.gridviewLoainha = new System.Windows.Forms.DataGridView();
-            this.Maloai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tenloai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
+            this.Maloai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tenloai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridviewLoainha)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -52,11 +52,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(324, 9);
+            this.label1.Location = new System.Drawing.Point(409, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 39);
+            this.label1.Size = new System.Drawing.Size(159, 46);
             this.label1.TabIndex = 0;
             this.label1.Text = "Loại nhà";
             // 
@@ -64,7 +64,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(369, 49);
+            this.label2.Location = new System.Drawing.Point(507, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 22);
             this.label2.TabIndex = 1;
@@ -74,7 +74,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(23, 49);
+            this.label3.Location = new System.Drawing.Point(32, 63);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 22);
             this.label3.TabIndex = 2;
@@ -86,26 +86,26 @@
             this.groupBox1.Controls.Add(this.txtMaloai);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(35, 56);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(35, 77);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(730, 98);
+            this.groupBox1.Size = new System.Drawing.Size(919, 139);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thực hiện nhập ";
             // 
             // txtTenloai
             // 
-            this.txtTenloai.Location = new System.Drawing.Point(444, 46);
+            this.txtTenloai.Location = new System.Drawing.Point(628, 60);
             this.txtTenloai.Name = "txtTenloai";
-            this.txtTenloai.Size = new System.Drawing.Size(255, 26);
+            this.txtTenloai.Size = new System.Drawing.Size(255, 27);
             this.txtTenloai.TabIndex = 3;
             // 
             // txtMaloai
             // 
-            this.txtMaloai.Location = new System.Drawing.Point(96, 46);
+            this.txtMaloai.Location = new System.Drawing.Point(126, 59);
             this.txtMaloai.Name = "txtMaloai";
-            this.txtMaloai.Size = new System.Drawing.Size(202, 26);
+            this.txtMaloai.Size = new System.Drawing.Size(252, 27);
             this.txtMaloai.TabIndex = 3;
             // 
             // gridviewLoainha
@@ -114,23 +114,11 @@
             this.gridviewLoainha.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Maloai,
             this.Tenloai});
-            this.gridviewLoainha.Location = new System.Drawing.Point(193, 174);
+            this.gridviewLoainha.Location = new System.Drawing.Point(216, 245);
             this.gridviewLoainha.Name = "gridviewLoainha";
-            this.gridviewLoainha.Size = new System.Drawing.Size(371, 150);
+            this.gridviewLoainha.Size = new System.Drawing.Size(542, 245);
             this.gridviewLoainha.TabIndex = 4;
             this.gridviewLoainha.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridviewLoainha_CellClick);
-            // 
-            // Maloai
-            // 
-            this.Maloai.DataPropertyName = "Maloai";
-            this.Maloai.HeaderText = "Mã loại";
-            this.Maloai.Name = "Maloai";
-            // 
-            // Tenloai
-            // 
-            this.Tenloai.DataPropertyName = "Tenloai";
-            this.Tenloai.HeaderText = "Tên loại";
-            this.Tenloai.Name = "Tenloai";
             // 
             // groupBox2
             // 
@@ -139,10 +127,10 @@
             this.groupBox2.Controls.Add(this.btnXoa);
             this.groupBox2.Controls.Add(this.btnSua);
             this.groupBox2.Controls.Add(this.btnThem);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(35, 341);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(35, 496);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(730, 124);
+            this.groupBox2.Size = new System.Drawing.Size(919, 153);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thao tác";
@@ -150,9 +138,9 @@
             // btnThoat
             // 
             this.btnThoat.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnThoat.Location = new System.Drawing.Point(634, 34);
+            this.btnThoat.Location = new System.Drawing.Point(758, 34);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(77, 59);
+            this.btnThoat.Size = new System.Drawing.Size(109, 97);
             this.btnThoat.TabIndex = 0;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
@@ -161,9 +149,9 @@
             // btnLuu
             // 
             this.btnLuu.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnLuu.Location = new System.Drawing.Point(479, 34);
+            this.btnLuu.Location = new System.Drawing.Point(577, 34);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(74, 59);
+            this.btnLuu.Size = new System.Drawing.Size(109, 97);
             this.btnLuu.TabIndex = 0;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
@@ -172,9 +160,9 @@
             // btnXoa
             // 
             this.btnXoa.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnXoa.Location = new System.Drawing.Point(331, 34);
+            this.btnXoa.Location = new System.Drawing.Point(393, 34);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(74, 59);
+            this.btnXoa.Size = new System.Drawing.Size(109, 97);
             this.btnXoa.TabIndex = 0;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
@@ -183,9 +171,9 @@
             // btnSua
             // 
             this.btnSua.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnSua.Location = new System.Drawing.Point(176, 34);
+            this.btnSua.Location = new System.Drawing.Point(209, 34);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(73, 59);
+            this.btnSua.Size = new System.Drawing.Size(109, 97);
             this.btnSua.TabIndex = 0;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
@@ -196,17 +184,31 @@
             this.btnThem.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnThem.Location = new System.Drawing.Point(27, 34);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(82, 59);
+            this.btnThem.Size = new System.Drawing.Size(109, 97);
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // Maloai
+            // 
+            this.Maloai.DataPropertyName = "Maloai";
+            this.Maloai.HeaderText = "Mã loại";
+            this.Maloai.Name = "Maloai";
+            this.Maloai.Width = 200;
+            // 
+            // Tenloai
+            // 
+            this.Tenloai.DataPropertyName = "Tenloai";
+            this.Tenloai.HeaderText = "Tên loại";
+            this.Tenloai.Name = "Tenloai";
+            this.Tenloai.Width = 300;
+            // 
             // frmLoaiNha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(799, 487);
+            this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gridviewLoainha);
             this.Controls.Add(this.groupBox1);
