@@ -39,7 +39,7 @@ namespace QLTN
 
         public void fillDataToCombo()
         {
-            string sql = "Select * from tblThueNha as a join tblDanhMucNha as b on a.Manha=b.Manha where b.Dathue=N'Đã cho thuê'";
+            string sql = "select Masothue from tblThueNha except select Masothue from tblTraNha ";
             SqlDataAdapter adapter = new SqlDataAdapter(sql, DAO.con);
             DataTable table = new DataTable();
             adapter.Fill(table);

@@ -31,7 +31,7 @@ namespace QLTN
             cmbNha.Text = "";
             cmbMucdich.Text = "";
             cmbHinhthucthanhtoan.Text = "";
-           // cmbNha.SelectedIndexChanged += cmbNha_SelectedIndexChanged;
+            cmbNha.SelectedIndexChanged += cmbNha_SelectedIndexChanged;
         }
 
         private void loadDataGridView()
@@ -251,7 +251,7 @@ namespace QLTN
                 return;
             }
             sql = "UPDATE tblThueNha SET  Makhach='" + cmbKhach.SelectedValue.ToString() + "',Manha =N'" + cmbNha.SelectedValue.ToString() + "',MamucdichSD='" 
-                + cmbMucdich.SelectedValue.ToString() + "',NgayBD=N'" + DAO.ConvertDateTime(dtpNgaybatdau.Value.ToString("MMt/dd/yyyy")) + 
+                + cmbMucdich.SelectedValue.ToString() + "',NgayBD=N'" + DAO.ConvertDateTime(dtpNgaybatdau.Value.ToString("MM/dd/yyyy")) + 
                 "',NgayKT=N'" + DAO.ConvertDateTime(dtpNgayketthuc.Value.ToString("MM/dd/yyyy")) + "',Tiendatcoc='" 
                 + txtTiendatcoc.Text.Trim() + "',MahinhthucTT='" + cmbHinhthucthanhtoan.SelectedValue.ToString() + "' WHERE Masothue='" + txtMasothue.Text + "'";
             DAO.OpenConnection();
@@ -275,12 +275,12 @@ namespace QLTN
             {
                 double dg;
                 string str;
-                str = "select a.Dongiathue from tblDanhMucNha as a join tblThueNha as b  on a.Manha=b.Manha where b.Manha='" + cmbNha.SelectedValue.ToString() + "' ";
+                str = "select Dongiathue from tblDanhMucNha where Manha='" + cmbNha.SelectedValue.ToString() + "' ";
                 DAO.OpenConnection();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = str;
                 cmd.Connection = DAO.con;
-                 dg = Convert.ToDouble(DAO.GetFieldValues(str));
+                dg = Convert.ToDouble(str);
                 txtTiendatcoc.Text = dg.ToString();
             }
         }

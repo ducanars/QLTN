@@ -134,7 +134,7 @@
             // 
             this.txtNgayketthuc.Location = new System.Drawing.Point(406, 111);
             this.txtNgayketthuc.Name = "txtNgayketthuc";
-            this.txtNgayketthuc.Size = new System.Drawing.Size(210, 27);
+            this.txtNgayketthuc.Size = new System.Drawing.Size(175, 27);
             this.txtNgayketthuc.TabIndex = 1;
             // 
             // txtTongtien
