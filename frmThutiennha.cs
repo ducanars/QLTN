@@ -25,6 +25,7 @@ namespace QLTN
             fillDataToCombo();
             DAO.CloseConnection();
             cmbMasothue.Text = "";
+            cmbMasothue.SelectedIndexChanged += cmbMasothue_SelectedIndexChanged;
         }
 
         private void loadDataGridView()
@@ -125,12 +126,6 @@ namespace QLTN
                 MessageBox.Show("Bạn chưa chọn tháng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (txtTongtien.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập tổng tiền!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtTongtien.Focus();
-                return;
-            }
             if (txtNguoithu.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập người thu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -141,12 +136,6 @@ namespace QLTN
             {
                 MessageBox.Show("Bạn phải nhập ngày thu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dtpNgaythu.Focus();
-                return;
-            }
-            if (txtGhichu.Text == "")
-            {
-                MessageBox.Show("Bạn phải nhập ghi chú", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtGhichu.Focus();
                 return;
             }
             string sql = "select * from tblThuTienNha where Masothu = '" + txtMasothu.Text.Trim() + "'";
@@ -220,12 +209,6 @@ namespace QLTN
                 txtNam.Focus();
                 return;
             }
-            if (txtTongtien.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập tổng tiền!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtTongtien.Focus();
-                return;
-            }
             if (txtNguoithu.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập người thu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -236,12 +219,6 @@ namespace QLTN
             {
                 MessageBox.Show("Bạn phải nhập ngày thu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dtpNgaythu.Focus();
-                return;
-            }
-            if (txtGhichu.Text == "")
-            {
-                MessageBox.Show("Bạn phải nhập ghi chú", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtGhichu.Focus();
                 return;
             }
 
@@ -569,19 +546,35 @@ namespace QLTN
             if (cmbMasothue.SelectedIndex != -1)
             {
 
-                string sql, sql1;
-                sql = "select a.Dongiathue from tblDanhMucNha as a join tblThueNha as b  on a.Manha=b.Manha where b.Masothue='mst1'";
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = sql;
-                cmd.Connection = DAO.con;
-                txtDongiathue.Text = DAO.GetFieldValues(sql);
-                txtDongiathue.Enabled = false;
-                sql1 = "select c.TenhinhthucTT from tblThueNha as a join tblThuTienNha as b on a.Masothue=b.Masothue join tblHinhThucThanhToan as c on a.MahinhthucTT=c.MahinhthucTT where b.Masothue='mst1'";
-                SqlCommand cmdd = new SqlCommand();
-                cmdd.CommandText = sql1;
-                cmdd.Connection = DAO.con;
-                txtHinhThuc.Text = DAO.GetFieldValues(sql1);
-                txtHinhThuc.Enabled = false;
+                string sql,sql1;
+                if (cmbMasothue.Text == "")
+                {
+                    txtDongiathue.Text = "";
+                    return;
+                }
+                sql = "SELECT Tiendatcoc FROM tblThueNha WHERE Masothue = '" + cmbMasothue.Text + "'";
+                DataTable table = DAO.DocBang(sql);
+                if (table.Rows.Count > 0)
+                {
+                    txtDongiathue.Text = table.Rows[0][0].ToString();
+                }
+                if (cmbMasothue.Text == "")
+                {
+                    txtHinhThuc.Text = "";
+                    return;
+                }
+                sql1 = "SELECT b.TenhinhthucTT FROM tblThueNha as a join tblHinhThucThanhToan as b on a.MahinhthucTT=b.MahinhthucTT WHERE a.Masothue = '" + cmbMasothue.Text + "'";
+                DataTable tbl = DAO.DocBang(sql1);
+                if (tbl.Rows.Count > 0)
+                {
+                    txtHinhThuc.Text = tbl.Rows[0][0].ToString();
+                }
+
+                double dg,ht,tt;
+                dg = Convert.ToDouble(txtDongiathue.Text);
+                ht = Convert.ToDouble(txtHinhThuc.Text);
+                tt = dg * ht;
+                txtTongtien.Text = tt.ToString();
             }
         }
     }

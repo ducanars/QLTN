@@ -174,5 +174,37 @@ namespace QLTN
             combo.DisplayMember = DisplayField;
         }
 
+        public static void RunSql(string sql)
+        {
+            SqlCommand cmd;		                // Khai báo đối tượng SqlCommand
+            cmd = new SqlCommand();	         // Khởi tạo đối tượng
+            cmd.Connection = DAO.con;	  // Gán kết nối
+            cmd.CommandText = sql;			  // Gán câu lệnh SQL
+            try
+            {
+                cmd.ExecuteNonQuery();		  // Thực hiện câu lệnh SQL
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            cmd.Dispose();
+            cmd = null;
+        }
+
+        public static DataTable DocBang(string sql)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter Mydata = new SqlDataAdapter();
+            Mydata.SelectCommand = new SqlCommand();
+            DAO.OpenConnection();
+            Mydata.SelectCommand.Connection = con;
+            Mydata.SelectCommand.CommandText = sql;
+            Mydata.Fill(dt);
+            DAO.CloseConnection();
+            return dt;
+        }
+
+
     }
 }

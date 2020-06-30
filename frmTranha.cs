@@ -26,6 +26,7 @@ namespace QLTN
             DAO.CloseConnection();
             cmbMasothue.Text = "";
             dtpNgaytra.ValueChanged += dtpNgaytra_ValueChanged;
+            cmbMasothue.SelectedIndexChanged += cmbMasothue_SelectedIndexChanged;
         }
 
         private void loadDataGridView()
@@ -86,12 +87,6 @@ namespace QLTN
                 dtpNgaytra.Focus();
                 return;
             }
-            if (txtTongtien.Text == "")
-            {
-                MessageBox.Show("Bạn không được để trống tổng tiền", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtTongtien.Focus();
-                return;
-            }
             string sql = "select * from tblTraNha where Masothue = '" +
             cmbMasothue.SelectedValue.ToString() + "'";
             DAO.OpenConnection();
@@ -130,13 +125,7 @@ namespace QLTN
                 dtpNgaytra.Focus();
                 return;
             }
-            if (txtTongtien.Text == "")
-            {
-                MessageBox.Show("Bạn không được để trống tổng tiền", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtTongtien.Focus();
-                return;
-            }
-            string sql = "UPDATE tblTraNha SET  Ngaytra=N'" + DAO.ConvertDateTime(dtpNgaytra.Value.ToString("dd/MM/yyyy")) +
+            string sql = "UPDATE tblTraNha SET  Ngaytra=N'" + DAO.ConvertDateTime(dtpNgaytra.Value.ToString("MM/dd/yyyy")) +
                     "',Tongtien =" + txtTongtien.Text.Trim() + " WHERE Masothue='" + cmbMasothue.SelectedValue.ToString() + "'";
             DAO.OpenConnection();
             SqlCommand cmd = new SqlCommand();
@@ -170,26 +159,21 @@ namespace QLTN
 
         private void dtpNgaytra_ValueChanged(object sender, EventArgs e)
         {
-
+            double tt, bt, dt;
+            bt = Convert.ToDouble(txtBoithuong.Text);
+            dt = Convert.ToDouble(txtTiendatcoc.Text);
             DateTime Ngay = DateTime.Parse(dtpNgaytra.Text);
             DateTime Ngay2 = DateTime.Parse(txtNgayketthuc.Text);
-            double tt,bt,dc;
-            string sql = "select sum(Thanhtien) from tblTraNha_MatTaiSan where Masothue='" + cmbMasothue.SelectedValue + "'";
-            DAO.OpenConnection();
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = sql;
-            cmd.Connection = DAO.con;
-            bt = Convert.ToDouble(sql);
-            string sql1 = "select Tiendatcoc from tblThueNha where Masothue='" + cmbMasothue.SelectedValue + "' ";
-            SqlCommand cmd1 = new SqlCommand();
-            cmd.CommandText = sql1;
-            cmd.Connection = DAO.con;
-            dc = Convert.ToDouble(sql1);
             if (Ngay < Ngay2)
+            {
                 tt = bt;
+                txtTongtien.Text = tt.ToString();
+            }
             else
-                tt = bt - dc;
-            txtTongtien.Text = tt.ToString();
+            {
+                tt = bt - dt;
+                txtTongtien.Text = tt.ToString();
+            }
         }
 
         private void cmbMasothue_SelectedIndexChanged(object sender, EventArgs e)
@@ -199,6 +183,33 @@ namespace QLTN
                 txtNgayketthuc.Text = DAO.GetFieldValues("select NgayKT from tblThueNha where Masothue = '" + cmbMasothue.SelectedValue.ToString() + "'");
 
             }
+
+            string sql, sql1;
+            if (cmbMasothue.Text == "")
+            {
+                txtBoithuong.Text = "";
+                return;
+            }
+            sql = "select sum(Thanhtien) from tblTraNha_MatTaiSan where Masothue='" + cmbMasothue.SelectedValue + "'";
+            DataTable table = DAO.DocBang(sql);
+            if (table.Rows.Count > 0)
+            {
+                txtBoithuong.Text = table.Rows[0][0].ToString();
+            }
+
+
+            if (cmbMasothue.Text == "")
+            {
+                txtTiendatcoc.Text = "";
+                return;
+            }
+            sql1 = "SELECT Tiendatcoc FROM tblThueNha WHERE Masothue = '" + cmbMasothue.Text + "'";
+            DataTable tbl = DAO.DocBang(sql1);
+            if (tbl.Rows.Count > 0)
+            {
+                txtTiendatcoc.Text = tbl.Rows[0][0].ToString();
+            }
+
         }
     }
 }

@@ -27,9 +27,9 @@ namespace QLTN
             DAO.CloseConnection();
             cmbTaisan.Text = "";
             cmbMasothue.Text = "";
-            txtGiatri.TextChanged += txtGiatri_TextChanged;
             cmbMasothue.SelectedIndexChanged += cmbMasothue_SelectedIndexChanged;
             txtSoluong.TextChanged += txtSoluong_TextChanged;
+            txtGiatri.TextChanged += txtGiatri_TextChanged;
         }
 
         private void loadDataGridView()
@@ -111,22 +111,10 @@ namespace QLTN
                 MessageBox.Show("Bạn chưa chọn tài sản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (txtGiatri.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtGiatri.Focus();
-                return;
-            }
             if (txtSoluong.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập số lượng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSoluong.Focus();
-                return;
-            }
-            if (txtThanhtien.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập thành tiền!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtThanhtien.Focus();
                 return;
             }
             //
@@ -134,7 +122,7 @@ namespace QLTN
             DAO.OpenConnection();
             if (DAO.CheckKeyExit(sql))
             {
-                MessageBox.Show("Mã số thuê và mã tài sản đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Tài sản này đã được kê khai trong nhà bạn chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 DAO.CloseConnection();
                 cmbMasothue.Focus();
                 return;
@@ -163,24 +151,14 @@ namespace QLTN
                 MessageBox.Show("Bạn chưa chọn tài sản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (txtGiatri.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtGiatri.Focus();
-                return;
-            }
+
             if (txtSoluong.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập số lượng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSoluong.Focus();
                 return;
             }
-            if (txtThanhtien.Text == "")
-            {
-                MessageBox.Show("Bạn chưa nhập thành tiền!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtThanhtien.Focus();
-                return;
-            }
+
             string sql = "update tblTraNha_MatTaiSan set Soluong = " + txtSoluong.Text.Trim() + ", Giatri=" + txtGiatri.Text.Trim()
                 + ", Thanhtien=N'" + txtThanhtien.Text.Trim() + " ' where Masothue = '" + cmbMasothue.SelectedValue.ToString()
                 + "' and Mataisan='" + cmbTaisan.SelectedValue.ToString() + "'";
@@ -216,7 +194,7 @@ namespace QLTN
 
         private void txtSoluong_TextChanged(object sender, EventArgs e)
         {
-            //Khi thay doi So luong, Gia tri thi Thanh tien tu dong cap nhat lai gia tri
+            //Khi thay doi So luong thi Thanh tien tu dong cap nhat lai gia tri
             double tt, sl, gt;
             if (txtSoluong.Text == "")
                 sl = 0;
@@ -225,8 +203,7 @@ namespace QLTN
             if (txtGiatri.Text == "")
                 gt = 0;
             else
-                gt = Convert.ToDouble(txtGiatri.Text);
-           
+               gt = Convert.ToDouble(txtGiatri.Text);
             tt = sl * gt;
             txtThanhtien.Text = tt.ToString();
 
@@ -234,6 +211,7 @@ namespace QLTN
 
         private void txtGiatri_TextChanged(object sender, EventArgs e)
         {
+            //Khi thay doi So luong thi Thanh tien tu dong cap nhat lai gia tri
             double tt, sl, gt;
             if (txtSoluong.Text == "")
                 sl = 0;
@@ -243,7 +221,6 @@ namespace QLTN
                 gt = 0;
             else
                 gt = Convert.ToDouble(txtGiatri.Text);
-
             tt = sl * gt;
             txtThanhtien.Text = tt.ToString();
         }
@@ -253,10 +230,14 @@ namespace QLTN
             if (cmbMasothue.SelectedIndex != -1)
             {
                 string str;
-                str = "select  d.Mataisan,d.Tentaisan from  tblThueNha as b  join tblNha_TaiSan as c on b.Manha=c.MaNha join tblTaiSan as d on c.Mataisan=d.Mataisan where b.Masothue='"+cmbMasothue.SelectedValue+"' " ;
+                str = "select  d.Mataisan,d.Tentaisan from  tblThueNha as b  join tblNha_TaiSan as c on b.Manha=c.MaNha " +
+                      "join tblTaiSan as d on c.Mataisan=d.Mataisan where b.Masothue='" + cmbMasothue.SelectedValue + "'" ;
                 DAO.FillDataToCombo(str, cmbTaisan, "Mataisan", "Tentaisan");
             }
+
+            cmbTaisan.Text = "";
         }
 
+        
     }
 }

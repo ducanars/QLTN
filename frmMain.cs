@@ -125,5 +125,17 @@ namespace QLTN
             HD.ShowDialog();
 
         }
+
+        private void BaocaothutiennhaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmBaoCaoThuTienNha BCTTN = new FrmBaoCaoThuTienNha();
+            BCTTN.ShowDialog();
+        }
+
+        private void BaocaochuathanhtoantiennhaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNhaChuaThanhToan TNCTT = new FrmNhaChuaThanhToan();
+            TNCTT.ShowDialog();
+        }
     }
 }

@@ -44,7 +44,7 @@
             // btnTimKiem
             // 
             this.btnTimKiem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnTimKiem.Location = new System.Drawing.Point(185, 38);
+            this.btnTimKiem.Location = new System.Drawing.Point(214, 38);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(109, 97);
             this.btnTimKiem.TabIndex = 2;
@@ -55,7 +55,7 @@
             // btnThoat
             // 
             this.btnThoat.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnThoat.Location = new System.Drawing.Point(580, 38);
+            this.btnThoat.Location = new System.Drawing.Point(598, 38);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(109, 97);
             this.btnThoat.TabIndex = 2;
@@ -68,7 +68,7 @@
             this.gridviewBaocaochuathanhtoan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Manha,
             this.Makhach});
-            this.gridviewBaocaochuathanhtoan.Location = new System.Drawing.Point(212, 74);
+            this.gridviewBaocaochuathanhtoan.Location = new System.Drawing.Point(255, 90);
             this.gridviewBaocaochuathanhtoan.Name = "gridviewBaocaochuathanhtoan";
             this.gridviewBaocaochuathanhtoan.Size = new System.Drawing.Size(493, 217);
             this.gridviewBaocaochuathanhtoan.TabIndex = 3;
@@ -103,7 +103,7 @@
             this.groupBox1.Controls.Add(this.btnTimKiem);
             this.groupBox1.Controls.Add(this.btnThoat);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(41, 313);
+            this.groupBox1.Location = new System.Drawing.Point(41, 325);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(903, 159);
             this.groupBox1.TabIndex = 4;
@@ -113,7 +113,7 @@
             // gridviewKetqua
             // 
             this.gridviewKetqua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridviewKetqua.Location = new System.Drawing.Point(212, 515);
+            this.gridviewKetqua.Location = new System.Drawing.Point(255, 499);
             this.gridviewKetqua.Name = "gridviewKetqua";
             this.gridviewKetqua.Size = new System.Drawing.Size(493, 150);
             this.gridviewKetqua.TabIndex = 5;

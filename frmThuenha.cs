@@ -273,15 +273,18 @@ namespace QLTN
         { 
             if (cmbNha.SelectedIndex != -1)
             {
-                double dg;
-                string str;
-                str = "select Dongiathue from tblDanhMucNha where Manha='" + cmbNha.SelectedValue.ToString() + "' ";
-                DAO.OpenConnection();
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = str;
-                cmd.Connection = DAO.con;
-                dg = Convert.ToDouble(str);
-                txtTiendatcoc.Text = dg.ToString();
+                string sql;
+                if (cmbNha.Text == "")
+                {
+                    txtTiendatcoc.Text = "";
+                    return;
+                }
+                sql = "SELECT Dongiathue FROM tblDanhMucNha WHERE Manha = '" + cmbNha.Text + "'";
+                DataTable table = DAO.DocBang(sql);
+                if (table.Rows.Count > 0)
+                {
+                    txtTiendatcoc.Text = table.Rows[0][0].ToString(); 
+                }
             }
         }
     }

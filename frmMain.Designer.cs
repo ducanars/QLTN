@@ -234,12 +234,14 @@
             this.BaocaothutiennhaToolStripMenuItem.Name = "BaocaothutiennhaToolStripMenuItem";
             this.BaocaothutiennhaToolStripMenuItem.Size = new System.Drawing.Size(375, 30);
             this.BaocaothutiennhaToolStripMenuItem.Text = "Báo cáo thu tiền nhà";
+            this.BaocaothutiennhaToolStripMenuItem.Click += new System.EventHandler(this.BaocaothutiennhaToolStripMenuItem_Click);
             // 
             // BaocaochuathanhtoantiennhaToolStripMenuItem
             // 
             this.BaocaochuathanhtoantiennhaToolStripMenuItem.Name = "BaocaochuathanhtoantiennhaToolStripMenuItem";
             this.BaocaochuathanhtoantiennhaToolStripMenuItem.Size = new System.Drawing.Size(375, 30);
             this.BaocaochuathanhtoantiennhaToolStripMenuItem.Text = "Báo cáo chưa thanh toán tiền nhà";
+            this.BaocaochuathanhtoantiennhaToolStripMenuItem.Click += new System.EventHandler(this.BaocaochuathanhtoantiennhaToolStripMenuItem_Click);
             // 
             // thoátToolStripMenuItem
             // 

@@ -24,6 +24,10 @@ namespace QLTN
             DAO.OpenConnection();
             fillDataToComboNha();
             DAO.CloseConnection();
+            cmbMasothue.SelectedIndex = -1;
+            txtTongtienthu.Enabled = true;
+            txtManha.Text = "";
+            txtTenkhach.Text = "";
 
         }
         public void fillDataToComboNha()
@@ -32,43 +36,72 @@ namespace QLTN
             SqlDataAdapter adapter = new SqlDataAdapter(sql, DAO.con);
             DataTable table = new DataTable();
             adapter.Fill(table);
-            cmbManha.DataSource = table;
-            cmbManha.ValueMember = "Manha";
-            cmbManha.DisplayMember = "Manha";
+            cmbMasothue.DataSource = table;
+            cmbMasothue.ValueMember = "Masothue";
+            cmbMasothue.DisplayMember = "Masothue";
         }
 
-        private void btnTinh_Click(object sender, EventArgs e)
-        {
-            int tt;
-            string sql = "select Sum(a.TongTien)  from tblThuTienNha as a join tblThueNha as b on a.Masothue=b.Masothue where Manha='"+cmbManha.SelectedValue.ToString()+"'";
-            DAO.OpenConnection();
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = sql;
-            cmd.Connection = DAO.con;
-            tt = Convert.ToInt32(sql);
-            txtTongtienthu.Text = tt.ToString();
-        }
 
-        /*private void cmbManha_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbMasothue_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbManha.SelectedIndex != -1)
+            if (cmbMasothue.SelectedIndex != -1)
             {
-                string str;
-                int tt;
-                str = "select Sum(a.TongTien)  from tblThuTienNha as a join tblThueNha as b on a.Masothue=b.Masothue where Manha='" + cmbManha.SelectedValue.ToString() + "'";
-                DAO.OpenConnection();
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = str;
-                cmd.Connection = DAO.con;
 
-
-                tt = Convert.ToInt32(DAO.GetFieldValues(str));
-
-
-
-                txtTongtienthu.Text = tt.ToString();
+                string sql, sql1;
+                if (cmbMasothue.Text == "")
+                {
+                    txtManha.Text = "";
+                    return;
+                }
+                sql = "SELECT Manha FROM tblThueNha WHERE Masothue = '" + cmbMasothue.Text + "'";
+                DataTable table = DAO.DocBang(sql);
+                if (table.Rows.Count > 0)
+                {
+                    txtManha.Text = table.Rows[0][0].ToString();
+                }
+                if (cmbMasothue.Text == "")
+                {
+                    txtTenkhach.Text = "";
+                    return;
+                }
+                sql1 = "SELECT b.Tenkhach FROM tblThueNha as a join tblKhachThue as b on a.Makhach=b.Makhach WHERE a.Masothue = '" + cmbMasothue.Text + "'";
+                DataTable tbl = DAO.DocBang(sql1);
+                if (tbl.Rows.Count > 0)
+                {
+                    txtTenkhach.Text = tbl.Rows[0][0].ToString();
+                }
             }
-        }*/
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình không?", "Hỏi Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                this.Close();
+        }
+
+        private void btnTinh_Click_1(object sender, EventArgs e)
+        {
+            if (cmbMasothue.Text == "")
+            {
+                txtTongtienthu.Text = "";
+                return;
+            }
+            string sql = "select Sum(a.TongTien) from tblThuTienNha as a join tblThueNha as b on a.Masothue=b.Masothue where b.Masothue='"
+                         + cmbMasothue.SelectedValue.ToString() + "'";
+            DataTable table = DAO.DocBang(sql);
+            if (table.Rows.Count > 0)
+            {
+                txtTongtienthu.Text = table.Rows[0][0].ToString();
+            }
+        }
+
+        private void btnTinhlai_Click(object sender, EventArgs e)
+        {
+            cmbMasothue.SelectedIndex = -1;
+            txtTongtienthu.Text = "";
+            txtManha.Text = "";
+            txtTenkhach.Text = "";
+        }
     }
 }
 
