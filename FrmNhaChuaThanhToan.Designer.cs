@@ -31,11 +31,13 @@
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.gridviewBaocaochuathanhtoan = new System.Windows.Forms.DataGridView();
-            this.Manha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Makhach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gridviewKetqua = new System.Windows.Forms.DataGridView();
+            this.Manha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tenkhach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Masothue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tenchunha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridviewBaocaochuathanhtoan)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridviewKetqua)).BeginInit();
@@ -61,31 +63,20 @@
             this.btnThoat.TabIndex = 2;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // gridviewBaocaochuathanhtoan
             // 
             this.gridviewBaocaochuathanhtoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridviewBaocaochuathanhtoan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Manha,
-            this.Makhach});
-            this.gridviewBaocaochuathanhtoan.Location = new System.Drawing.Point(255, 90);
+            this.Tenkhach,
+            this.Masothue,
+            this.Tenchunha});
+            this.gridviewBaocaochuathanhtoan.Location = new System.Drawing.Point(177, 102);
             this.gridviewBaocaochuathanhtoan.Name = "gridviewBaocaochuathanhtoan";
-            this.gridviewBaocaochuathanhtoan.Size = new System.Drawing.Size(493, 217);
+            this.gridviewBaocaochuathanhtoan.Size = new System.Drawing.Size(642, 217);
             this.gridviewBaocaochuathanhtoan.TabIndex = 3;
-            // 
-            // Manha
-            // 
-            this.Manha.DataPropertyName = "Manha";
-            this.Manha.HeaderText = "Mã nhà";
-            this.Manha.Name = "Manha";
-            this.Manha.Width = 200;
-            // 
-            // Makhach
-            // 
-            this.Makhach.DataPropertyName = "Makhach";
-            this.Makhach.HeaderText = "Tên khách";
-            this.Makhach.Name = "Makhach";
-            this.Makhach.Width = 250;
             // 
             // label2
             // 
@@ -118,6 +109,32 @@
             this.gridviewKetqua.Size = new System.Drawing.Size(493, 150);
             this.gridviewKetqua.TabIndex = 5;
             // 
+            // Manha
+            // 
+            this.Manha.DataPropertyName = "Manha";
+            this.Manha.HeaderText = "Mã nhà";
+            this.Manha.Name = "Manha";
+            // 
+            // Tenkhach
+            // 
+            this.Tenkhach.DataPropertyName = "Tenkhach";
+            this.Tenkhach.HeaderText = "Tên khách";
+            this.Tenkhach.Name = "Tenkhach";
+            this.Tenkhach.Width = 200;
+            // 
+            // Masothue
+            // 
+            this.Masothue.DataPropertyName = "Masothue";
+            this.Masothue.HeaderText = "Mã số thuê";
+            this.Masothue.Name = "Masothue";
+            // 
+            // Tenchunha
+            // 
+            this.Tenchunha.DataPropertyName = "Tenchunha";
+            this.Tenchunha.HeaderText = "Tên chủ nhà";
+            this.Tenchunha.Name = "Tenchunha";
+            this.Tenchunha.Width = 200;
+            // 
             // FrmNhaChuaThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,10 +159,12 @@
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.DataGridView gridviewBaocaochuathanhtoan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Manha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Makhach;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView gridviewKetqua;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Manha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tenkhach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Masothue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tenchunha;
     }
 }

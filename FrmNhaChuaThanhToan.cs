@@ -31,7 +31,7 @@ namespace QLTN
         }
         private void loadDataGridView()
         {
-            string sql = "select Makhach,Manha from tblThueNha";
+            string sql = "select a.Manha,c.Tenchunha,b.Tenkhach,a.Masothue from tblThueNha as a join tblKhachThue as b on a.Makhach=b.Makhach join tblDanhMucNha as c on a.Manha=c.Manha";
             SqlDataAdapter adapter = new SqlDataAdapter(sql, DAO.con);
             DataTable table = new DataTable();
             adapter.Fill(table);
@@ -43,13 +43,19 @@ namespace QLTN
             string str = DateTime.Now.ToString().Trim();
             str = str.Substring(3, 2);
             string str1 = DateTime.Now.ToString().Trim();
-            str1 = str1.Substring(6, 4);
+            str1 = str1.Substring(6, 4);          
             string sql;
-            sql = "select a.Makhach,a.Manha from tblThueNha as a join tblThuTienNha as b on a.Masothue=b.Masothue where b.Nam =2020 and b.Thang not like '%"+str.ToString()+"%' ";
+            sql = "select a.Makhach,a.Manha from tblThueNha as a join tblThuTienNha as b on a.Masothue=b.Masothue where b.Nam = 2020  and b.Thang not like '%" + str.ToString() + "%' ";
             SqlDataAdapter adapter = new SqlDataAdapter(sql, DAO.con);
             DataTable table = new DataTable();
             adapter.Fill(table);
             gridviewKetqua.DataSource = table;
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình không?", "Hỏi Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                this.Close();
         }
     }
 }

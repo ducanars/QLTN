@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTaisan));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTentaisan = new System.Windows.Forms.TextBox();
             this.txtMataisan = new System.Windows.Forms.TextBox();
@@ -35,14 +36,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.gridviewTaisan = new System.Windows.Forms.DataGridView();
+            this.Mataisan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tentaisan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
-            this.Mataisan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tentaisan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridviewTaisan)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -101,7 +102,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(411, 9);
+            this.label3.Location = new System.Drawing.Point(422, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(146, 46);
             this.label3.TabIndex = 1;
@@ -118,6 +119,20 @@
             this.gridviewTaisan.Size = new System.Drawing.Size(537, 245);
             this.gridviewTaisan.TabIndex = 2;
             this.gridviewTaisan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridviewTaisan_CellClick);
+            // 
+            // Mataisan
+            // 
+            this.Mataisan.DataPropertyName = "Mataisan";
+            this.Mataisan.HeaderText = "Mã tài sản";
+            this.Mataisan.Name = "Mataisan";
+            this.Mataisan.Width = 200;
+            // 
+            // Tentaisan
+            // 
+            this.Tentaisan.DataPropertyName = "Tentaisan";
+            this.Tentaisan.HeaderText = "Tên tài sản";
+            this.Tentaisan.Name = "Tentaisan";
+            this.Tentaisan.Width = 300;
             // 
             // groupBox2
             // 
@@ -136,72 +151,70 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnThoat.Location = new System.Drawing.Point(779, 44);
+            this.btnThoat.BackColor = System.Drawing.Color.White;
+            this.btnThoat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnThoat.BackgroundImage")));
+            this.btnThoat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnThoat.Location = new System.Drawing.Point(778, 61);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(109, 97);
+            this.btnThoat.Size = new System.Drawing.Size(109, 42);
             this.btnThoat.TabIndex = 0;
-            this.btnThoat.Text = "Thoát";
+            this.btnThoat.Text = "      Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnLuu
             // 
-            this.btnLuu.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnLuu.Location = new System.Drawing.Point(590, 44);
+            this.btnLuu.BackColor = System.Drawing.Color.White;
+            this.btnLuu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLuu.BackgroundImage")));
+            this.btnLuu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLuu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLuu.Location = new System.Drawing.Point(588, 61);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(109, 97);
+            this.btnLuu.Size = new System.Drawing.Size(109, 42);
             this.btnLuu.TabIndex = 0;
-            this.btnLuu.Text = "Lưu";
+            this.btnLuu.Text = "      Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnXoa.Location = new System.Drawing.Point(404, 44);
+            this.btnXoa.BackColor = System.Drawing.Color.White;
+            this.btnXoa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnXoa.BackgroundImage")));
+            this.btnXoa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnXoa.Location = new System.Drawing.Point(404, 61);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(109, 97);
+            this.btnXoa.Size = new System.Drawing.Size(109, 42);
             this.btnXoa.TabIndex = 0;
-            this.btnXoa.Text = "Xóa";
+            this.btnXoa.Text = "      Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
-            this.btnSua.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnSua.Location = new System.Drawing.Point(222, 44);
+            this.btnSua.BackColor = System.Drawing.Color.White;
+            this.btnSua.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSua.BackgroundImage")));
+            this.btnSua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSua.Location = new System.Drawing.Point(218, 61);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(109, 97);
+            this.btnSua.Size = new System.Drawing.Size(109, 42);
             this.btnSua.TabIndex = 0;
-            this.btnSua.Text = "Sửa";
+            this.btnSua.Text = "      Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
-            this.btnThem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnThem.Location = new System.Drawing.Point(38, 44);
+            this.btnThem.BackColor = System.Drawing.Color.White;
+            this.btnThem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnThem.BackgroundImage")));
+            this.btnThem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThem.Location = new System.Drawing.Point(37, 61);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(109, 97);
+            this.btnThem.Size = new System.Drawing.Size(109, 42);
             this.btnThem.TabIndex = 0;
-            this.btnThem.Text = "Thêm";
+            this.btnThem.Text = "     Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // Mataisan
-            // 
-            this.Mataisan.DataPropertyName = "Mataisan";
-            this.Mataisan.HeaderText = "Mã tài sản";
-            this.Mataisan.Name = "Mataisan";
-            this.Mataisan.Width = 200;
-            // 
-            // Tentaisan
-            // 
-            this.Tentaisan.DataPropertyName = "Tentaisan";
-            this.Tentaisan.HeaderText = "Tên tài sản";
-            this.Tentaisan.Name = "Tentaisan";
-            this.Tentaisan.Width = 300;
             // 
             // frmTaisan
             // 
