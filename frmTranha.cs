@@ -104,7 +104,6 @@ namespace QLTN
                     + DAO.ConvertDateTime(dtpNgaytra.Text.ToString()) + "',N'" +
                      txtTongtien.Text.Trim() + "')";
                 SqlCommand cmd = new SqlCommand(sql, DAO.con);
-                MessageBox.Show(sql);
                 cmd.ExecuteNonQuery();
                 loadDataGridView();
                 fillDataToCombo();

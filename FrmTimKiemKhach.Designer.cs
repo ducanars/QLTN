@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTimKiemKhach));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -110,17 +111,20 @@
             // 
             // btnTimkiem
             // 
-            this.btnTimkiem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnTimkiem.Location = new System.Drawing.Point(121, 37);
+            this.btnTimkiem.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnTimkiem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnTimkiem.BackgroundImage")));
+            this.btnTimkiem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnTimkiem.Location = new System.Drawing.Point(101, 37);
             this.btnTimkiem.Name = "btnTimkiem";
-            this.btnTimkiem.Size = new System.Drawing.Size(109, 97);
+            this.btnTimkiem.Size = new System.Drawing.Size(127, 42);
             this.btnTimkiem.TabIndex = 2;
-            this.btnTimkiem.Text = "Tìm kiếm";
+            this.btnTimkiem.Text = "     Tìm kiếm";
             this.btnTimkiem.UseVisualStyleBackColor = false;
             this.btnTimkiem.Click += new System.EventHandler(this.btnTimkiem_Click);
             // 
             // gridviewTimkiemkhach
             // 
+            this.gridviewTimkiemkhach.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gridviewTimkiemkhach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridviewTimkiemkhach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Makhach,
@@ -133,7 +137,7 @@
             this.MaCQ});
             this.gridviewTimkiemkhach.Location = new System.Drawing.Point(64, 286);
             this.gridviewTimkiemkhach.Name = "gridviewTimkiemkhach";
-            this.gridviewTimkiemkhach.Size = new System.Drawing.Size(865, 150);
+            this.gridviewTimkiemkhach.Size = new System.Drawing.Size(865, 208);
             this.gridviewTimkiemkhach.TabIndex = 3;
             // 
             // Makhach
@@ -191,12 +195,14 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnThoat.Location = new System.Drawing.Point(662, 37);
+            this.btnThoat.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnThoat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnThoat.BackgroundImage")));
+            this.btnThoat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnThoat.Location = new System.Drawing.Point(699, 37);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(109, 97);
+            this.btnThoat.Size = new System.Drawing.Size(127, 42);
             this.btnThoat.TabIndex = 2;
-            this.btnThoat.Text = "Thoát";
+            this.btnThoat.Text = "     Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
@@ -222,21 +228,23 @@
             this.groupBox2.Controls.Add(this.btnTimlai);
             this.groupBox2.Controls.Add(this.btnTimkiem);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(29, 488);
+            this.groupBox2.Location = new System.Drawing.Point(29, 533);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(922, 161);
+            this.groupBox2.Size = new System.Drawing.Size(922, 116);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thao tác";
             // 
             // btnTimlai
             // 
-            this.btnTimlai.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnTimlai.Location = new System.Drawing.Point(392, 37);
+            this.btnTimlai.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnTimlai.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnTimlai.BackgroundImage")));
+            this.btnTimlai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnTimlai.Location = new System.Drawing.Point(408, 37);
             this.btnTimlai.Name = "btnTimlai";
-            this.btnTimlai.Size = new System.Drawing.Size(109, 97);
+            this.btnTimlai.Size = new System.Drawing.Size(127, 42);
             this.btnTimlai.TabIndex = 2;
-            this.btnTimlai.Text = "Tìm lại";
+            this.btnTimlai.Text = "     Tìm lại";
             this.btnTimlai.UseVisualStyleBackColor = false;
             this.btnTimlai.Click += new System.EventHandler(this.btnTimlai_Click);
             // 

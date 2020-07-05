@@ -121,5 +121,6 @@ namespace QLTN
             cmbDiachi.SelectedIndex = -1;
             gridviewTimkiemnha.DataSource = null;
         }
+
     }
 }

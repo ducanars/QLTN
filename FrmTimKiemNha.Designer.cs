@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTimKiemNha));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,11 +37,6 @@
             this.cmbDoituongsudung = new System.Windows.Forms.ComboBox();
             this.btnTimkiem = new System.Windows.Forms.Button();
             this.gridviewTimkiemnha = new System.Windows.Forms.DataGridView();
-            this.btnthoat = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnTimlai = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.Manha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tenchunha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Diachi = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +46,11 @@
             this.MaDTSD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tinhtrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dathue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnthoat = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnTimlai = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridviewTimkiemnha)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -108,17 +109,20 @@
             // 
             // btnTimkiem
             // 
-            this.btnTimkiem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnTimkiem.Location = new System.Drawing.Point(110, 41);
+            this.btnTimkiem.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnTimkiem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnTimkiem.BackgroundImage")));
+            this.btnTimkiem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnTimkiem.Location = new System.Drawing.Point(101, 41);
             this.btnTimkiem.Name = "btnTimkiem";
-            this.btnTimkiem.Size = new System.Drawing.Size(109, 97);
+            this.btnTimkiem.Size = new System.Drawing.Size(127, 42);
             this.btnTimkiem.TabIndex = 2;
-            this.btnTimkiem.Text = "Tìm kiếm";
+            this.btnTimkiem.Text = "     Tìm kiếm";
             this.btnTimkiem.UseVisualStyleBackColor = false;
             this.btnTimkiem.Click += new System.EventHandler(this.btnTimkiem_Click);
             // 
             // gridviewTimkiemnha
             // 
+            this.gridviewTimkiemnha.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gridviewTimkiemnha.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridviewTimkiemnha.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Manha,
@@ -130,72 +134,10 @@
             this.MaDTSD,
             this.Tinhtrang,
             this.Dathue});
-            this.gridviewTimkiemnha.Location = new System.Drawing.Point(33, 230);
+            this.gridviewTimkiemnha.Location = new System.Drawing.Point(33, 255);
             this.gridviewTimkiemnha.Name = "gridviewTimkiemnha";
             this.gridviewTimkiemnha.Size = new System.Drawing.Size(914, 234);
             this.gridviewTimkiemnha.TabIndex = 3;
-            // 
-            // btnthoat
-            // 
-            this.btnthoat.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnthoat.Location = new System.Drawing.Point(678, 41);
-            this.btnthoat.Name = "btnthoat";
-            this.btnthoat.Size = new System.Drawing.Size(109, 97);
-            this.btnthoat.TabIndex = 2;
-            this.btnthoat.Text = "Thoát";
-            this.btnthoat.UseVisualStyleBackColor = false;
-            this.btnthoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnTimlai);
-            this.groupBox1.Controls.Add(this.btnTimkiem);
-            this.groupBox1.Controls.Add(this.btnthoat);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(33, 490);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(914, 159);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thao tác";
-            // 
-            // btnTimlai
-            // 
-            this.btnTimlai.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnTimlai.Location = new System.Drawing.Point(392, 41);
-            this.btnTimlai.Name = "btnTimlai";
-            this.btnTimlai.Size = new System.Drawing.Size(109, 97);
-            this.btnTimlai.TabIndex = 2;
-            this.btnTimlai.Text = "Tìm lại";
-            this.btnTimlai.UseVisualStyleBackColor = false;
-            this.btnTimlai.Click += new System.EventHandler(this.btnTimlai_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.cmbLoainha);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.cmbDiachi);
-            this.groupBox2.Controls.Add(this.cmbDoituongsudung);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(33, 72);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(914, 119);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Thực hiện nhập";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(367, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(242, 46);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Tìm kiếm nhà";
             // 
             // Manha
             // 
@@ -267,6 +209,72 @@
             this.Dathue.FillWeight = 30F;
             this.Dathue.HeaderText = "Đã thuê";
             this.Dathue.Name = "Dathue";
+            // 
+            // btnthoat
+            // 
+            this.btnthoat.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnthoat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnthoat.BackgroundImage")));
+            this.btnthoat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnthoat.Location = new System.Drawing.Point(691, 41);
+            this.btnthoat.Name = "btnthoat";
+            this.btnthoat.Size = new System.Drawing.Size(127, 42);
+            this.btnthoat.TabIndex = 2;
+            this.btnthoat.Text = "       Thoát";
+            this.btnthoat.UseVisualStyleBackColor = false;
+            this.btnthoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnTimlai);
+            this.groupBox1.Controls.Add(this.btnTimkiem);
+            this.groupBox1.Controls.Add(this.btnthoat);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(33, 529);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(914, 120);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thao tác";
+            // 
+            // btnTimlai
+            // 
+            this.btnTimlai.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnTimlai.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnTimlai.BackgroundImage")));
+            this.btnTimlai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnTimlai.Location = new System.Drawing.Point(403, 41);
+            this.btnTimlai.Name = "btnTimlai";
+            this.btnTimlai.Size = new System.Drawing.Size(127, 42);
+            this.btnTimlai.TabIndex = 2;
+            this.btnTimlai.Text = "      Tìm lại";
+            this.btnTimlai.UseVisualStyleBackColor = false;
+            this.btnTimlai.Click += new System.EventHandler(this.btnTimlai_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cmbLoainha);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.cmbDiachi);
+            this.groupBox2.Controls.Add(this.cmbDoituongsudung);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(33, 72);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(914, 138);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Thực hiện nhập";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(367, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(242, 46);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Tìm kiếm nhà";
             // 
             // FrmTimKiemNha
             // 

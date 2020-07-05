@@ -101,6 +101,7 @@ namespace QLTN
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            double gt1, gt2, ss;
             if (cmbMasothue.SelectedIndex == -1)
             {
                 MessageBox.Show("Bạn chưa chọn mã thuê nhà!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -117,6 +118,12 @@ namespace QLTN
                 txtSoluong.Focus();
                 return;
             }
+            if (txtGiatri.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtGiatri.Focus();
+                return;
+            }
             //
             string sql = "select * from tblTraNha_MatTaiSan where Masothue='" + cmbMasothue.SelectedValue.ToString() + "' and Mataisan='" + cmbTaisan.SelectedValue.ToString() + "'";
             DAO.OpenConnection();
@@ -125,6 +132,22 @@ namespace QLTN
                 MessageBox.Show("Tài sản này đã được kê khai trong nhà bạn chọn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 DAO.CloseConnection();
                 cmbMasothue.Focus();
+                return;
+            }
+            string str = "select a.Giatri from tblNha_TaiSan as a join tblThueNha as b on a.Manha=b.Manha where a.Mataisan = '" + cmbTaisan.SelectedValue.ToString() + "' and b.Masothue= '" + cmbMasothue.SelectedValue.ToString() + "'";
+            DataTable table = DAO.DocBang(str);
+            if (table.Rows.Count > 0)
+            {
+                txtGiatribandau.Text = table.Rows[0][0].ToString();
+            }
+            gt1 = Convert.ToDouble(txtGiatribandau.Text);
+            gt2 = Convert.ToDouble(txtGiatri.Text);
+            ss = gt2 - gt1;
+
+            if (ss> 0)
+            {
+                MessageBox.Show("Giá trị không hợp lệ vì lớn hơn giá trị ban đầu, mời nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtGiatri.Focus();
                 return;
             }
             else
@@ -156,6 +179,12 @@ namespace QLTN
             {
                 MessageBox.Show("Bạn chưa nhập số lượng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSoluong.Focus();
+                return;
+            }
+            if (txtGiatri.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập giá trị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtGiatri.Focus();
                 return;
             }
 
@@ -237,7 +266,5 @@ namespace QLTN
 
             cmbTaisan.Text = "";
         }
-
-        
     }
 }

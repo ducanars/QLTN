@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHinhthucthanhtoan));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtMahinhthuc = new System.Windows.Forms.TextBox();
             this.txtTenhinhthuc = new System.Windows.Forms.TextBox();
@@ -35,14 +36,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gridviewHinhthucthanhtoan = new System.Windows.Forms.DataGridView();
+            this.MahinhthucTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenhinhthucTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
-            this.MahinhthucTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenhinhthucTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridviewHinhthucthanhtoan)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -109,6 +110,7 @@
             // 
             // gridviewHinhthucthanhtoan
             // 
+            this.gridviewHinhthucthanhtoan.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gridviewHinhthucthanhtoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridviewHinhthucthanhtoan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MahinhthucTT,
@@ -118,6 +120,20 @@
             this.gridviewHinhthucthanhtoan.Size = new System.Drawing.Size(543, 233);
             this.gridviewHinhthucthanhtoan.TabIndex = 2;
             this.gridviewHinhthucthanhtoan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridviewHinhthucthanhtoan_CellClick);
+            // 
+            // MahinhthucTT
+            // 
+            this.MahinhthucTT.DataPropertyName = "MahinhthucTT";
+            this.MahinhthucTT.HeaderText = "Mã hình thức";
+            this.MahinhthucTT.Name = "MahinhthucTT";
+            this.MahinhthucTT.Width = 200;
+            // 
+            // TenhinhthucTT
+            // 
+            this.TenhinhthucTT.DataPropertyName = "TenhinhthucTT";
+            this.TenhinhthucTT.HeaderText = "Tên hình thức";
+            this.TenhinhthucTT.Name = "TenhinhthucTT";
+            this.TenhinhthucTT.Width = 300;
             // 
             // groupBox2
             // 
@@ -136,72 +152,68 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnThoat.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnThoat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnThoat.BackgroundImage")));
+            this.btnThoat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnThoat.Location = new System.Drawing.Point(766, 37);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(109, 97);
+            this.btnThoat.Size = new System.Drawing.Size(109, 42);
             this.btnThoat.TabIndex = 0;
-            this.btnThoat.Text = "Thoát";
+            this.btnThoat.Text = "     Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnLuu
             // 
-            this.btnLuu.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnLuu.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLuu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLuu.BackgroundImage")));
+            this.btnLuu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnLuu.Location = new System.Drawing.Point(589, 37);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(109, 97);
+            this.btnLuu.Size = new System.Drawing.Size(109, 42);
             this.btnLuu.TabIndex = 0;
-            this.btnLuu.Text = "Lưu";
+            this.btnLuu.Text = "      Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnXoa.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnXoa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnXoa.BackgroundImage")));
+            this.btnXoa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnXoa.Location = new System.Drawing.Point(408, 37);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(109, 97);
+            this.btnXoa.Size = new System.Drawing.Size(109, 42);
             this.btnXoa.TabIndex = 0;
-            this.btnXoa.Text = "Xóa";
+            this.btnXoa.Text = "       Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
-            this.btnSua.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSua.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSua.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSua.BackgroundImage")));
+            this.btnSua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnSua.Location = new System.Drawing.Point(232, 37);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(109, 97);
+            this.btnSua.Size = new System.Drawing.Size(109, 42);
             this.btnSua.TabIndex = 0;
-            this.btnSua.Text = "Sửa";
+            this.btnSua.Text = "      Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
-            this.btnThem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnThem.Location = new System.Drawing.Point(57, 37);
+            this.btnThem.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnThem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnThem.BackgroundImage")));
+            this.btnThem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnThem.Location = new System.Drawing.Point(54, 37);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(109, 97);
+            this.btnThem.Size = new System.Drawing.Size(109, 42);
             this.btnThem.TabIndex = 0;
-            this.btnThem.Text = "Thêm";
+            this.btnThem.Text = "      Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // MahinhthucTT
-            // 
-            this.MahinhthucTT.DataPropertyName = "MahinhthucTT";
-            this.MahinhthucTT.HeaderText = "Mã hình thức";
-            this.MahinhthucTT.Name = "MahinhthucTT";
-            this.MahinhthucTT.Width = 200;
-            // 
-            // TenhinhthucTT
-            // 
-            this.TenhinhthucTT.DataPropertyName = "TenhinhthucTT";
-            this.TenhinhthucTT.HeaderText = "Tên hình thức";
-            this.TenhinhthucTT.Name = "TenhinhthucTT";
-            this.TenhinhthucTT.Width = 300;
             // 
             // frmHinhthucthanhtoan
             // 

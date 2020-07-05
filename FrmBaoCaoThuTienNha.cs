@@ -28,6 +28,7 @@ namespace QLTN
             txtTongtienthu.Enabled = true;
             txtManha.Text = "";
             txtTenkhach.Text = "";
+            txtDiachi.Text = "";
 
         }
         public void fillDataToComboNha()
@@ -47,7 +48,7 @@ namespace QLTN
             if (cmbMasothue.SelectedIndex != -1)
             {
 
-                string sql, sql1;
+                string sql, sql1,sql2;
                 if (cmbMasothue.Text == "")
                 {
                     txtManha.Text = "";
@@ -65,10 +66,21 @@ namespace QLTN
                     return;
                 }
                 sql1 = "SELECT b.Tenkhach FROM tblThueNha as a join tblKhachThue as b on a.Makhach=b.Makhach WHERE a.Masothue = '" + cmbMasothue.Text + "'";
-                DataTable tbl = DAO.DocBang(sql1);
-                if (tbl.Rows.Count > 0)
+                DataTable table1 = DAO.DocBang(sql1);
+                if (table1.Rows.Count > 0)
                 {
-                    txtTenkhach.Text = tbl.Rows[0][0].ToString();
+                    txtTenkhach.Text = table1.Rows[0][0].ToString();
+                }
+                if (cmbMasothue.Text == "")
+                {
+                    txtDiachi.Text = "";
+                    return;
+                }
+                sql2 = "SELECT b.Diachi FROM tblThueNha as a join tblDanhMucNha as b on a.Manha=b.Manha WHERE Masothue = '" + cmbMasothue.Text + "'";
+                DataTable table2 = DAO.DocBang(sql2);
+                if (table2.Rows.Count > 0)
+                {
+                    txtDiachi.Text = table2.Rows[0][0].ToString();
                 }
             }
         }
@@ -79,7 +91,8 @@ namespace QLTN
                 this.Close();
         }
 
-        private void btnTinh_Click_1(object sender, EventArgs e)
+
+        private void btnTim_Click(object sender, EventArgs e)
         {
             if (cmbMasothue.Text == "")
             {
@@ -95,12 +108,13 @@ namespace QLTN
             }
         }
 
-        private void btnTinhlai_Click(object sender, EventArgs e)
+        private void btnTimlai_Click(object sender, EventArgs e)
         {
             cmbMasothue.SelectedIndex = -1;
             txtTongtienthu.Text = "";
             txtManha.Text = "";
             txtTenkhach.Text = "";
+            txtDiachi.Text = "";
         }
     }
 }

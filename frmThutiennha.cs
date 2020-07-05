@@ -542,11 +542,7 @@ namespace QLTN
         }
         
         private void cmbMasothue_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbMasothue.SelectedIndex != -1)
-            {
-
-                string sql,sql1;
+        {string sql,sql1;
                 if (cmbMasothue.Text == "")
                 {
                     txtDongiathue.Text = "";
@@ -558,6 +554,10 @@ namespace QLTN
                 {
                     txtDongiathue.Text = table.Rows[0][0].ToString();
                 }
+            if (cmbMasothue.SelectedIndex != -1)
+            {
+
+                
                 if (cmbMasothue.Text == "")
                 {
                     txtHinhThuc.Text = "";

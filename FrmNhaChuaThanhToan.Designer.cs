@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNhaChuaThanhToan));
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.gridviewBaocaochuathanhtoan = new System.Windows.Forms.DataGridView();
@@ -45,28 +46,33 @@
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnTimKiem.Location = new System.Drawing.Point(214, 38);
+            this.btnTimKiem.BackColor = System.Drawing.Color.White;
+            this.btnTimKiem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.BackgroundImage")));
+            this.btnTimKiem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnTimKiem.Location = new System.Drawing.Point(240, 38);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(109, 97);
+            this.btnTimKiem.Size = new System.Drawing.Size(119, 42);
             this.btnTimKiem.TabIndex = 2;
-            this.btnTimKiem.Text = "Tìm Kiếm";
+            this.btnTimKiem.Text = "    Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = false;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // btnThoat
             // 
-            this.btnThoat.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnThoat.Location = new System.Drawing.Point(598, 38);
+            this.btnThoat.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnThoat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnThoat.BackgroundImage")));
+            this.btnThoat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnThoat.Location = new System.Drawing.Point(541, 38);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(109, 97);
+            this.btnThoat.Size = new System.Drawing.Size(119, 42);
             this.btnThoat.TabIndex = 2;
-            this.btnThoat.Text = "Thoát";
+            this.btnThoat.Text = "    Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // gridviewBaocaochuathanhtoan
             // 
+            this.gridviewBaocaochuathanhtoan.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gridviewBaocaochuathanhtoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridviewBaocaochuathanhtoan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Manha,
@@ -96,17 +102,18 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(41, 325);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(903, 159);
+            this.groupBox1.Size = new System.Drawing.Size(903, 100);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thao tác";
             // 
             // gridviewKetqua
             // 
+            this.gridviewKetqua.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gridviewKetqua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridviewKetqua.Location = new System.Drawing.Point(255, 499);
+            this.gridviewKetqua.Location = new System.Drawing.Point(177, 467);
             this.gridviewKetqua.Name = "gridviewKetqua";
-            this.gridviewKetqua.Size = new System.Drawing.Size(493, 150);
+            this.gridviewKetqua.Size = new System.Drawing.Size(642, 150);
             this.gridviewKetqua.TabIndex = 5;
             // 
             // Manha

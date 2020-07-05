@@ -71,6 +71,7 @@ namespace QLTN
                 txtDoituongsudung.Text = DAO.GetFieldValues("select b.TenDTSD from tblDanhMucNha as a join tblDoiTuongSuDung as b on a.MaDTSD=b.MaDTSD where a.Manha = '" + cmbManha.SelectedValue + "'");
                 txtTinhtrang.Text = DAO.GetFieldValues("select Tinhtrang from tblDanhMucNha where Manha = '" + cmbManha.SelectedValue + "'");
                 txtGhichu.Text = DAO.GetFieldValues("select Ghichu from tblDanhMucNha where Manha = '" + cmbManha.SelectedValue + "'");
+                lblBangchu.Text = "Bằng chữ: " + DAO.ChuyenSoSangChu(txtDongiathue.Text);
             }
 
         }
@@ -313,18 +314,10 @@ namespace QLTN
             exRange.Range["J11:J11"].Value = txtMahopdong.Text.ToString();
             
 
-
-
-
-
-
-
             // Biểu diễn thông tin TKB
             //Tạo dòng tiêu đề bảng
 
             exApp.Visible = true;
-
-
         }
 
         private void btnTaomoi_Click(object sender, EventArgs e)

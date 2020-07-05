@@ -110,11 +110,12 @@
             // 
             // gridviewTaisan
             // 
+            this.gridviewTaisan.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gridviewTaisan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridviewTaisan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Mataisan,
             this.Tentaisan});
-            this.gridviewTaisan.Location = new System.Drawing.Point(223, 219);
+            this.gridviewTaisan.Location = new System.Drawing.Point(225, 239);
             this.gridviewTaisan.Name = "gridviewTaisan";
             this.gridviewTaisan.Size = new System.Drawing.Size(537, 245);
             this.gridviewTaisan.TabIndex = 2;
@@ -142,9 +143,9 @@
             this.groupBox2.Controls.Add(this.btnSua);
             this.groupBox2.Controls.Add(this.btnThem);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(26, 487);
+            this.groupBox2.Location = new System.Drawing.Point(26, 513);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(932, 162);
+            this.groupBox2.Size = new System.Drawing.Size(932, 124);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thao tác";
@@ -154,7 +155,7 @@
             this.btnThoat.BackColor = System.Drawing.Color.White;
             this.btnThoat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnThoat.BackgroundImage")));
             this.btnThoat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnThoat.Location = new System.Drawing.Point(778, 61);
+            this.btnThoat.Location = new System.Drawing.Point(775, 45);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(109, 42);
             this.btnThoat.TabIndex = 0;
@@ -168,7 +169,7 @@
             this.btnLuu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLuu.BackgroundImage")));
             this.btnLuu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnLuu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnLuu.Location = new System.Drawing.Point(588, 61);
+            this.btnLuu.Location = new System.Drawing.Point(589, 45);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(109, 42);
             this.btnLuu.TabIndex = 0;
@@ -181,7 +182,7 @@
             this.btnXoa.BackColor = System.Drawing.Color.White;
             this.btnXoa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnXoa.BackgroundImage")));
             this.btnXoa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnXoa.Location = new System.Drawing.Point(404, 61);
+            this.btnXoa.Location = new System.Drawing.Point(404, 45);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(109, 42);
             this.btnXoa.TabIndex = 0;
@@ -194,7 +195,7 @@
             this.btnSua.BackColor = System.Drawing.Color.White;
             this.btnSua.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSua.BackgroundImage")));
             this.btnSua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnSua.Location = new System.Drawing.Point(218, 61);
+            this.btnSua.Location = new System.Drawing.Point(217, 45);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(109, 42);
             this.btnSua.TabIndex = 0;
@@ -208,7 +209,7 @@
             this.btnThem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnThem.BackgroundImage")));
             this.btnThem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnThem.Location = new System.Drawing.Point(37, 61);
+            this.btnThem.Location = new System.Drawing.Point(37, 45);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(109, 42);
             this.btnThem.TabIndex = 0;

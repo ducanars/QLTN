@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThutiennha));
             this.btnThem = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnThoat = new System.Windows.Forms.Button();
@@ -54,7 +55,6 @@
             this.chk3 = new System.Windows.Forms.CheckBox();
             this.chk12 = new System.Windows.Forms.CheckBox();
             this.chk11 = new System.Windows.Forms.CheckBox();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.chk10 = new System.Windows.Forms.CheckBox();
             this.chk9 = new System.Windows.Forms.CheckBox();
             this.chk8 = new System.Windows.Forms.CheckBox();
@@ -85,12 +85,14 @@
             // 
             // btnThem
             // 
-            this.btnThem.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnThem.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnThem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnThem.BackgroundImage")));
+            this.btnThem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnThem.Location = new System.Drawing.Point(33, 34);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(109, 97);
+            this.btnThem.Size = new System.Drawing.Size(109, 42);
             this.btnThem.TabIndex = 0;
-            this.btnThem.Text = "Thêm";
+            this.btnThem.Text = "      Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
@@ -102,59 +104,68 @@
             this.groupBox2.Controls.Add(this.btnSua);
             this.groupBox2.Controls.Add(this.btnThem);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(37, 518);
+            this.groupBox2.Location = new System.Drawing.Point(37, 557);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(914, 140);
+            this.groupBox2.Size = new System.Drawing.Size(914, 101);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thao tác";
             // 
             // btnThoat
             // 
-            this.btnThoat.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnThoat.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnThoat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnThoat.BackgroundImage")));
+            this.btnThoat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnThoat.Location = new System.Drawing.Point(777, 34);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(109, 97);
+            this.btnThoat.Size = new System.Drawing.Size(109, 42);
             this.btnThoat.TabIndex = 0;
-            this.btnThoat.Text = "Thoát";
+            this.btnThoat.Text = "     Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnLuu
             // 
-            this.btnLuu.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnLuu.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLuu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLuu.BackgroundImage")));
+            this.btnLuu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnLuu.Location = new System.Drawing.Point(599, 34);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(109, 97);
+            this.btnLuu.Size = new System.Drawing.Size(109, 42);
             this.btnLuu.TabIndex = 0;
-            this.btnLuu.Text = "Lưu";
+            this.btnLuu.Text = "       Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnXoa.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnXoa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnXoa.BackgroundImage")));
+            this.btnXoa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnXoa.Location = new System.Drawing.Point(407, 34);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(109, 97);
+            this.btnXoa.Size = new System.Drawing.Size(109, 42);
             this.btnXoa.TabIndex = 0;
-            this.btnXoa.Text = "Xóa";
+            this.btnXoa.Text = "       Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
-            this.btnSua.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSua.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSua.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSua.BackgroundImage")));
+            this.btnSua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnSua.Location = new System.Drawing.Point(221, 34);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(109, 97);
+            this.btnSua.Size = new System.Drawing.Size(109, 42);
             this.btnSua.TabIndex = 0;
-            this.btnSua.Text = "Sửa";
+            this.btnSua.Text = "       Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // gridviewThutiennha
             // 
+            this.gridviewThutiennha.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gridviewThutiennha.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridviewThutiennha.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Masothu,
@@ -165,9 +176,9 @@
             this.Nguoithu,
             this.NgayThu,
             this.Ghichu});
-            this.gridviewThutiennha.Location = new System.Drawing.Point(37, 362);
+            this.gridviewThutiennha.Location = new System.Drawing.Point(37, 381);
             this.gridviewThutiennha.Name = "gridviewThutiennha";
-            this.gridviewThutiennha.Size = new System.Drawing.Size(914, 150);
+            this.gridviewThutiennha.Size = new System.Drawing.Size(914, 158);
             this.gridviewThutiennha.TabIndex = 9;
             this.gridviewThutiennha.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridviewThutiennha_CellClick);
             // 
@@ -292,7 +303,6 @@
             this.groupBox3.Controls.Add(this.chk3);
             this.groupBox3.Controls.Add(this.chk12);
             this.groupBox3.Controls.Add(this.chk11);
-            this.groupBox3.Controls.Add(this.checkBox11);
             this.groupBox3.Controls.Add(this.chk10);
             this.groupBox3.Controls.Add(this.chk9);
             this.groupBox3.Controls.Add(this.chk8);
@@ -365,16 +375,6 @@
             this.chk11.TabIndex = 0;
             this.chk11.Text = "11";
             this.chk11.UseVisualStyleBackColor = true;
-            // 
-            // checkBox11
-            // 
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Location = new System.Drawing.Point(295, 74);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(39, 26);
-            this.checkBox11.TabIndex = 0;
-            this.checkBox11.Text = "1";
-            this.checkBox11.UseVisualStyleBackColor = true;
             // 
             // chk10
             // 
@@ -631,7 +631,6 @@
         private System.Windows.Forms.CheckBox chk3;
         private System.Windows.Forms.CheckBox chk12;
         private System.Windows.Forms.CheckBox chk11;
-        private System.Windows.Forms.CheckBox checkBox11;
         private System.Windows.Forms.CheckBox chk10;
         private System.Windows.Forms.CheckBox chk9;
         private System.Windows.Forms.CheckBox chk8;

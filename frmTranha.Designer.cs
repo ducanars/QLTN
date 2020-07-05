@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTranha));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,7 +37,11 @@
             this.cmbMasothue = new System.Windows.Forms.ComboBox();
             this.dtpNgaytra = new System.Windows.Forms.DateTimePicker();
             this.txtNgayketthuc = new System.Windows.Forms.TextBox();
+            this.txtTiendatcoc = new System.Windows.Forms.TextBox();
+            this.txtBoithuong = new System.Windows.Forms.TextBox();
             this.txtTongtien = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.gridviewTranha = new System.Windows.Forms.DataGridView();
             this.Masothue = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,10 +54,6 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtBoithuong = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtTiendatcoc = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridviewTranha)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -145,12 +146,46 @@
             this.txtNgayketthuc.Size = new System.Drawing.Size(230, 27);
             this.txtNgayketthuc.TabIndex = 1;
             // 
+            // txtTiendatcoc
+            // 
+            this.txtTiendatcoc.Location = new System.Drawing.Point(701, 94);
+            this.txtTiendatcoc.Name = "txtTiendatcoc";
+            this.txtTiendatcoc.Size = new System.Drawing.Size(230, 27);
+            this.txtTiendatcoc.TabIndex = 1;
+            // 
+            // txtBoithuong
+            // 
+            this.txtBoithuong.Location = new System.Drawing.Point(701, 36);
+            this.txtBoithuong.Name = "txtBoithuong";
+            this.txtBoithuong.Size = new System.Drawing.Size(230, 27);
+            this.txtBoithuong.TabIndex = 1;
+            // 
             // txtTongtien
             // 
             this.txtTongtien.Location = new System.Drawing.Point(701, 147);
             this.txtTongtien.Name = "txtTongtien";
             this.txtTongtien.Size = new System.Drawing.Size(230, 27);
             this.txtTongtien.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(519, 97);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(109, 22);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Tiền đặt cọc";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(519, 39);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(154, 22);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Bồi thường tài sản";
             // 
             // label5
             // 
@@ -164,12 +199,13 @@
             // 
             // gridviewTranha
             // 
+            this.gridviewTranha.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gridviewTranha.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridviewTranha.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Masothue,
             this.Ngaytra,
             this.Tongtien});
-            this.gridviewTranha.Location = new System.Drawing.Point(193, 283);
+            this.gridviewTranha.Location = new System.Drawing.Point(203, 295);
             this.gridviewTranha.Name = "gridviewTranha";
             this.gridviewTranha.Size = new System.Drawing.Size(587, 225);
             this.gridviewTranha.TabIndex = 2;
@@ -204,65 +240,75 @@
             this.groupBox2.Controls.Add(this.btnSua);
             this.groupBox2.Controls.Add(this.btnThem);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 514);
+            this.groupBox2.Location = new System.Drawing.Point(12, 537);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(960, 147);
+            this.groupBox2.Size = new System.Drawing.Size(960, 112);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thao tác";
             // 
             // btnThoat
             // 
-            this.btnThoat.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnThoat.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnThoat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnThoat.BackgroundImage")));
+            this.btnThoat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnThoat.Location = new System.Drawing.Point(811, 40);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(109, 97);
+            this.btnThoat.Size = new System.Drawing.Size(109, 42);
             this.btnThoat.TabIndex = 0;
-            this.btnThoat.Text = "Thoát";
+            this.btnThoat.Text = "      Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnLuu
             // 
-            this.btnLuu.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnLuu.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLuu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLuu.BackgroundImage")));
+            this.btnLuu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnLuu.Location = new System.Drawing.Point(624, 40);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(109, 97);
+            this.btnLuu.Size = new System.Drawing.Size(109, 42);
             this.btnLuu.TabIndex = 0;
-            this.btnLuu.Text = "Lưu";
+            this.btnLuu.Text = "       Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnXoa.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnXoa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnXoa.BackgroundImage")));
+            this.btnXoa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnXoa.Location = new System.Drawing.Point(424, 40);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(109, 97);
+            this.btnXoa.Size = new System.Drawing.Size(109, 42);
             this.btnXoa.TabIndex = 0;
-            this.btnXoa.Text = "Xóa";
+            this.btnXoa.Text = "       Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
-            this.btnSua.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSua.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSua.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSua.BackgroundImage")));
+            this.btnSua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnSua.Location = new System.Drawing.Point(232, 40);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(109, 97);
+            this.btnSua.Size = new System.Drawing.Size(109, 42);
             this.btnSua.TabIndex = 0;
-            this.btnSua.Text = "Sửa";
+            this.btnSua.Text = "       Sửa";
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
-            this.btnThem.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnThem.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnThem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnThem.BackgroundImage")));
+            this.btnThem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnThem.Location = new System.Drawing.Point(37, 40);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(109, 97);
+            this.btnThem.Size = new System.Drawing.Size(109, 42);
             this.btnThem.TabIndex = 0;
-            this.btnThem.Text = "Thêm";
+            this.btnThem.Text = "      Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
@@ -271,40 +317,6 @@
             this.directorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
             this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
             this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(519, 39);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(154, 22);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Bồi thường tài sản";
-            // 
-            // txtBoithuong
-            // 
-            this.txtBoithuong.Location = new System.Drawing.Point(701, 36);
-            this.txtBoithuong.Name = "txtBoithuong";
-            this.txtBoithuong.Size = new System.Drawing.Size(230, 27);
-            this.txtBoithuong.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(519, 97);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 22);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Tiền đặt cọc";
-            // 
-            // txtTiendatcoc
-            // 
-            this.txtTiendatcoc.Location = new System.Drawing.Point(701, 94);
-            this.txtTiendatcoc.Name = "txtTiendatcoc";
-            this.txtTiendatcoc.Size = new System.Drawing.Size(230, 27);
-            this.txtTiendatcoc.TabIndex = 1;
             // 
             // frmTranha
             // 
