@@ -54,6 +54,8 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
+            this.txtTenchunha = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridviewNha_taisan)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -75,10 +77,12 @@
             this.groupBox1.Controls.Add(this.cmbManha);
             this.groupBox1.Controls.Add(this.cmbTaisan);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtTenchunha);
             this.groupBox1.Controls.Add(this.txtGiatri);
             this.groupBox1.Controls.Add(this.txtSoluong);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtTinhtrang);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
@@ -98,6 +102,7 @@
             this.cmbManha.Name = "cmbManha";
             this.cmbManha.Size = new System.Drawing.Size(248, 28);
             this.cmbManha.TabIndex = 2;
+            this.cmbManha.SelectedIndexChanged += new System.EventHandler(this.cmbManha_SelectedIndexChanged);
             // 
             // cmbTaisan
             // 
@@ -314,6 +319,22 @@
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // txtTenchunha
+            // 
+            this.txtTenchunha.Location = new System.Drawing.Point(399, 39);
+            this.txtTenchunha.Name = "txtTenchunha";
+            this.txtTenchunha.Size = new System.Drawing.Size(242, 27);
+            this.txtTenchunha.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(377, 42);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(16, 22);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "-";
+            // 
             // frmNha_Taisan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,5 +385,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Mataisan;
         private System.Windows.Forms.DataGridViewTextBoxColumn Soluong;
         private System.Windows.Forms.DataGridViewTextBoxColumn Giatri;
+        private System.Windows.Forms.TextBox txtTenchunha;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -61,6 +61,8 @@
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
+            this.txtDoituong = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridviewThuenha)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -111,7 +113,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(16, 172);
+            this.label5.Location = new System.Drawing.Point(16, 223);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(86, 22);
             this.label5.TabIndex = 0;
@@ -195,7 +197,7 @@
             // 
             this.cmbMucdich.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMucdich.FormattingEnabled = true;
-            this.cmbMucdich.Location = new System.Drawing.Point(131, 169);
+            this.cmbMucdich.Location = new System.Drawing.Point(131, 220);
             this.cmbMucdich.Name = "cmbMucdich";
             this.cmbMucdich.Size = new System.Drawing.Size(243, 28);
             this.cmbMucdich.TabIndex = 2;
@@ -234,6 +236,7 @@
             this.groupBox1.Controls.Add(this.dtpNgayketthuc);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtTiendatcoc);
+            this.groupBox1.Controls.Add(this.txtDoituong);
             this.groupBox1.Controls.Add(this.txtMasothue);
             this.groupBox1.Controls.Add(this.dtpNgaybatdau);
             this.groupBox1.Controls.Add(this.label7);
@@ -243,12 +246,13 @@
             this.groupBox1.Controls.Add(this.cmbMucdich);
             this.groupBox1.Controls.Add(this.dsdsd);
             this.groupBox1.Controls.Add(this.cmbNha);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(22, 68);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(939, 201);
+            this.groupBox1.Size = new System.Drawing.Size(939, 254);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thực hiện nhập";
@@ -266,7 +270,7 @@
             this.NgayKT,
             this.Tiendatcoc,
             this.MahinhthucTT});
-            this.gridviewThuenha.Location = new System.Drawing.Point(22, 306);
+            this.gridviewThuenha.Location = new System.Drawing.Point(22, 328);
             this.gridviewThuenha.Name = "gridviewThuenha";
             this.gridviewThuenha.Size = new System.Drawing.Size(939, 207);
             this.gridviewThuenha.TabIndex = 5;
@@ -396,6 +400,24 @@
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // txtDoituong
+            // 
+            this.txtDoituong.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDoituong.Location = new System.Drawing.Point(131, 172);
+            this.txtDoituong.Name = "txtDoituong";
+            this.txtDoituong.Size = new System.Drawing.Size(243, 27);
+            this.txtDoituong.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(16, 175);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 22);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Đối tượng";
+            // 
             // frmThuenha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -451,5 +473,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayKT;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tiendatcoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn MahinhthucTT;
+        private System.Windows.Forms.TextBox txtDoituong;
+        private System.Windows.Forms.Label label4;
     }
 }

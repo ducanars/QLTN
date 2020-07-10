@@ -33,6 +33,7 @@ namespace QLTN
             DAO.CloseConnection();
             fillDataToComboMakhach();
             fillDataToComboManha();
+            cmbManha.SelectedIndex = -1;
         }
         public void fillDataToComboManha()
         {
@@ -71,9 +72,7 @@ namespace QLTN
                 txtDoituongsudung.Text = DAO.GetFieldValues("select b.TenDTSD from tblDanhMucNha as a join tblDoiTuongSuDung as b on a.MaDTSD=b.MaDTSD where a.Manha = '" + cmbManha.SelectedValue + "'");
                 txtTinhtrang.Text = DAO.GetFieldValues("select Tinhtrang from tblDanhMucNha where Manha = '" + cmbManha.SelectedValue + "'");
                 txtGhichu.Text = DAO.GetFieldValues("select Ghichu from tblDanhMucNha where Manha = '" + cmbManha.SelectedValue + "'");
-                lblBangchu.Text = "Bằng chữ: " + DAO.ChuyenSoSangChu(txtDongiathue.Text);
             }
-
         }
 
         private void cmbMakhach_SelectedIndexChanged(object sender, EventArgs e)
@@ -198,6 +197,10 @@ namespace QLTN
             exRange.Range["F35:H35"].Font.Name = "Times new roman";
             exRange.Range["F35:H35"].MergeCells = true;
             exRange.Range["F35:H35"].Value = "Hình thức thanh toán: ";
+            exRange.Range["K35:K35"].Font.Size = 13;
+            exRange.Range["K35:K35"].Font.Name = "Times new roman";
+            exRange.Range["K35:K35"].MergeCells = true;
+            exRange.Range["K35:K35"].Value = "Tháng ";
             exRange.Range["F36:H36"].Font.Size = 13;
             exRange.Range["F36:H36"].Font.Name = "Times new roman";
             exRange.Range["F36:H36"].MergeCells = true;

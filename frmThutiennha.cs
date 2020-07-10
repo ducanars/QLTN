@@ -26,7 +26,12 @@ namespace QLTN
             DAO.CloseConnection();
             cmbMasothue.Text = "";
             cmbMasothue.SelectedIndexChanged += cmbMasothue_SelectedIndexChanged;
+            txtDongiathue.Enabled = false;
+            txtNgaybatdau.Enabled = false;
+            txtHinhThuc.Enabled = false;
+            txtTongtien.Enabled = false;
         }
+
 
         private void loadDataGridView()
         {
@@ -542,8 +547,15 @@ namespace QLTN
         }
         
         private void cmbMasothue_SelectedIndexChanged(object sender, EventArgs e)
-        {string sql,sql1;
-                if (cmbMasothue.Text == "")
+        {
+            string sql,sql1;
+            if (cmbMasothue.SelectedIndex != -1)
+            {
+                txtNgaybatdau.Text = DAO.GetFieldValues("select NgayBD from tblThueNha where Masothue = '" + cmbMasothue.SelectedValue.ToString() + "'");
+
+            }
+
+            if (cmbMasothue.Text == "")
                 {
                     txtDongiathue.Text = "";
                     return;

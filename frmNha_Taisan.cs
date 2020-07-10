@@ -27,6 +27,7 @@ namespace QLTN
             DAO.CloseConnection();
             cmbTaisan.Text = "";
             cmbManha.Text = "";
+            txtTenchunha.Text = "";
         }
 
         private void loadDataGridView()
@@ -77,9 +78,8 @@ namespace QLTN
 
         private void gridviewNha_taisan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string sql,sql1;
-            sql = "Select Tenchunha From tblDanhMucNha Where Manha = N'" + gridviewNha_taisan.CurrentRow.Cells["Manha"].Value.ToString() + "'";
-            cmbManha.Text = DAO.GetFieldValues(sql);
+            string sql1;
+            cmbManha.Text = gridviewNha_taisan.CurrentRow.Cells["Manha"].Value.ToString();
             sql1 = "Select Tentaisan From tblTaiSan Where Mataisan = N'" + gridviewNha_taisan.CurrentRow.Cells["Mataisan"].Value.ToString() + "'";
             cmbTaisan.Text = DAO.GetFieldValues(sql1);
             txtSoluong.Text = gridviewNha_taisan.CurrentRow.Cells["Soluong"].Value.ToString();
@@ -214,6 +214,22 @@ namespace QLTN
             cmd.ExecuteNonQuery();
             loadDataGridView();
             DAO.CloseConnection();
+        }
+
+        private void cmbManha_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sql;
+            if (cmbManha.Text == "")
+            {
+                txtTenchunha.Text = "";
+                return;
+            }
+            sql = "SELECT Tenchunha FROM tblDanhMucNha WHERE Manha = '" + cmbManha.Text + "'";
+            DataTable table = DAO.DocBang(sql);
+            if (table.Rows.Count > 0)
+            {
+                txtTenchunha.Text = table.Rows[0][0].ToString();
+            }
         }
     }
 }

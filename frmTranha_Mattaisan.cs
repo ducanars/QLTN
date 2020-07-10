@@ -30,6 +30,7 @@ namespace QLTN
             cmbMasothue.SelectedIndexChanged += cmbMasothue_SelectedIndexChanged;
             txtSoluong.TextChanged += txtSoluong_TextChanged;
             txtGiatri.TextChanged += txtGiatri_TextChanged;
+            txtGiatribandau.Enabled = false;
         }
 
         private void loadDataGridView()
@@ -154,8 +155,10 @@ namespace QLTN
             {
                 sql = "insert into tblTraNha_MatTaiSan (Masothue,Mataisan,Soluong,Giatri,Thanhtien) " +
                     " values ('" + cmbMasothue.SelectedValue.ToString() + "','" + cmbTaisan.SelectedValue.ToString() + "',"
-                    + txtSoluong.Text.Trim() + "," + txtGiatri.Text.Trim() + ",N'" + txtThanhtien.Text.Trim() + "')";
+                    + txtSoluong.Text.Trim() + "," + txtGiatri.Text.Trim() + "," + txtThanhtien.Text.Trim() + ")";
+                DAO.con.Open();
                 SqlCommand cmd = new SqlCommand(sql, DAO.con);
+  
                 cmd.ExecuteNonQuery();
                 DAO.CloseConnection();
                 loadDataGridView();

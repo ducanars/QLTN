@@ -32,6 +32,7 @@ namespace QLTN
             cmbMucdich.Text = "";
             cmbHinhthucthanhtoan.Text = "";
             cmbNha.SelectedIndexChanged += cmbNha_SelectedIndexChanged;
+            txtDoituong.Enabled = false;
         }
 
         private void loadDataGridView()
@@ -189,7 +190,6 @@ namespace QLTN
                     + DAO.ConvertDateTime(dtpNgaybatdau.Text.ToString()) + "',N'" + DAO.ConvertDateTime(dtpNgayketthuc.Text.ToString()) +
                     "','" + txtTiendatcoc.Text.Trim() + "','" + cmbHinhthucthanhtoan.SelectedValue.ToString() + "')";
                 SqlCommand cmd = new SqlCommand(sql, DAO.con);
-                MessageBox.Show(sql);
                 cmd.ExecuteNonQuery();
                 loadDataGridView();
                 fillDataToComboKhachthue();
@@ -273,7 +273,7 @@ namespace QLTN
         { 
             if (cmbNha.SelectedIndex != -1)
             {
-                string sql;
+                string sql, sql1;
                 if (cmbNha.Text == "")
                 {
                     txtTiendatcoc.Text = "";
@@ -284,6 +284,17 @@ namespace QLTN
                 if (table.Rows.Count > 0)
                 {
                     txtTiendatcoc.Text = table.Rows[0][0].ToString(); 
+                }
+                if (cmbNha.Text == "")
+                {
+                    txtDoituong.Text = "";
+                    return;
+                }
+                sql1 = "SELECT b.TenDTSD FROM tblDanhMucNha as a join tblDoiTuongSuDung as b on a.MaDTSD = b.MaDTSD WHERE a.Manha = '" + cmbNha.Text + "'";
+                DataTable table1 = DAO.DocBang(sql1);
+                if (table1.Rows.Count > 0)
+                {
+                    txtDoituong.Text = table1.Rows[0][0].ToString();
                 }
             }
         }

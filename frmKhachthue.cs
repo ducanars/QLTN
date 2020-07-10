@@ -152,7 +152,7 @@ namespace QLTN
             DAO.OpenConnection();
             if (DAO.CheckKeyExit(sql))
             {
-                MessageBox.Show("Mã khách đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Mã khách này đã tồn tại, bạn phải nhập mã khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMakhach.Focus();
                 DAO.CloseConnection();
                 return;
@@ -187,7 +187,7 @@ namespace QLTN
             string sql, gt;
             if (txtMakhach.Text == "")
             {
-                MessageBox.Show("Bạn phải nhập mã khách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bạn chưa chọn bản ghi nào", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMakhach.Focus();
                 return;
             }
@@ -262,7 +262,8 @@ namespace QLTN
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình không?", "Hỏi Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình không?", "Hỏi Thoát",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 this.Close();
         }
     }

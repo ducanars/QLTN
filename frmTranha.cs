@@ -58,7 +58,8 @@ namespace QLTN
 
         private void gridviewTranha_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            cmbMasothue.Text = gridviewTranha.CurrentRow.Cells["Masothue"].Value.ToString();
+            string ma = gridviewTranha.CurrentRow.Cells["Masothue"].Value.ToString();
+            cmbMasothue.Text = DAO.GetFieldValues("select Masothue from tblThuTienNha where Masothue = '" + ma + "'");
             dtpNgaytra.Text = gridviewTranha.CurrentRow.Cells["Ngaytra"].Value.ToString();
             txtTongtien.Text = gridviewTranha.CurrentRow.Cells["Tongtien"].Value.ToString();
         }

@@ -76,7 +76,8 @@ namespace QLTN
             string sql;
             if ((cmbkhach.Text == "") && (cmbnghe.Text == "") && (cmbdiachi.Text == ""))
             {
-                MessageBox.Show("Hãy chọn một điều kiện tìm kiếm!!!", "Yêu cầu chọn Tên khách, Nghề nghiệp , Địa chỉ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Hãy chọn một điều kiện tìm kiếm!!!", "Yêu cầu chọn Tên khách, Nghề nghiệp , Địa chỉ", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             sql = "select  Makhach,Tenkhach,Ngaysinh,Gioitinh,SoCMND,Diachithuongtru,Manghe,MaCQ from tblKhachThue where 1=1";
@@ -96,10 +97,12 @@ namespace QLTN
             tblKhach = DAO.GetDataToTable(sql);
             if (tblKhach.Rows.Count == 0)
             {
-                MessageBox.Show("Không có bản ghi nào thỏa mãn điều kiện!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Không có bản ghi nào thỏa mãn điều kiện!!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
-                MessageBox.Show("Có " + tblKhach.Rows.Count + " Bản ghi thỏa mãn điều kiện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Có " + tblKhach.Rows.Count + " Bản ghi thỏa mãn điều kiện!", "Thông báo", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             gridviewTimkiemkhach.DataSource = tblKhach;
             cmbnghe.Enabled = false;
             cmbkhach.Enabled = false;
