@@ -26,6 +26,9 @@ namespace QLTN
             DAO.CloseConnection();
             cmbMasothue.SelectedIndex = -1;
             txtTongtienthu.Enabled = true;
+            txtManha.Enabled = false;
+            txtTenkhach.Enabled = false;
+            txtDiachi.Enabled = false;
             txtManha.Text = "";
             txtTenkhach.Text = "";
             txtDiachi.Text = "";

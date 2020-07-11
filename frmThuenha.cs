@@ -33,6 +33,7 @@ namespace QLTN
             cmbHinhthucthanhtoan.Text = "";
             cmbNha.SelectedIndexChanged += cmbNha_SelectedIndexChanged;
             txtDoituong.Enabled = false;
+            txtTiendatcoc.Enabled = false;
         }
 
         private void loadDataGridView()

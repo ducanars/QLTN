@@ -61,24 +61,24 @@
             this.chk2 = new System.Windows.Forms.CheckBox();
             this.chk7 = new System.Windows.Forms.CheckBox();
             this.chk1 = new System.Windows.Forms.CheckBox();
+            this.txtNgaybatdau = new System.Windows.Forms.TextBox();
+            this.txtNam = new System.Windows.Forms.TextBox();
             this.dtpNgaythu = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtDongiathue = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtTongtien = new System.Windows.Forms.TextBox();
             this.txtNguoithu = new System.Windows.Forms.TextBox();
             this.txtGhichu = new System.Windows.Forms.TextBox();
-            this.txtNam = new System.Windows.Forms.TextBox();
             this.txtMasothu = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbMasothue = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNgaybatdau = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridviewThutiennha)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -285,9 +285,9 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(16, 186);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(186, 22);
+            this.label10.Size = new System.Drawing.Size(176, 22);
             this.label10.TabIndex = 11;
-            this.label10.Text = "Hình thức thanh thoán";
+            this.label10.Text = "Hình thức thanh toán";
             // 
             // label4
             // 
@@ -440,6 +440,22 @@
             this.chk1.Text = "1";
             this.chk1.UseVisualStyleBackColor = true;
             // 
+            // txtNgaybatdau
+            // 
+            this.txtNgaybatdau.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNgaybatdau.Location = new System.Drawing.Point(170, 229);
+            this.txtNgaybatdau.Name = "txtNgaybatdau";
+            this.txtNgaybatdau.Size = new System.Drawing.Size(256, 27);
+            this.txtNgaybatdau.TabIndex = 1;
+            // 
+            // txtNam
+            // 
+            this.txtNam.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNam.Location = new System.Drawing.Point(170, 271);
+            this.txtNam.Name = "txtNam";
+            this.txtNam.Size = new System.Drawing.Size(256, 27);
+            this.txtNam.TabIndex = 1;
+            // 
             // dtpNgaythu
             // 
             this.dtpNgaythu.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -447,6 +463,26 @@
             this.dtpNgaythu.Name = "dtpNgaythu";
             this.dtpNgaythu.Size = new System.Drawing.Size(256, 27);
             this.dtpNgaythu.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(16, 232);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(117, 22);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Ngày bắt đầu";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(16, 274);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 22);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Năm";
             // 
             // txtDongiathue
             // 
@@ -500,14 +536,6 @@
             this.txtGhichu.Size = new System.Drawing.Size(256, 27);
             this.txtGhichu.TabIndex = 1;
             // 
-            // txtNam
-            // 
-            this.txtNam.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNam.Location = new System.Drawing.Point(170, 271);
-            this.txtNam.Name = "txtNam";
-            this.txtNam.Size = new System.Drawing.Size(256, 27);
-            this.txtNam.TabIndex = 1;
-            // 
             // txtMasothu
             // 
             this.txtMasothu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -555,16 +583,6 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Ngày thu";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(16, 274);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 22);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Năm";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -585,24 +603,6 @@
             this.label2.Size = new System.Drawing.Size(220, 46);
             this.label2.TabIndex = 7;
             this.label2.Text = "Thu tiền nhà";
-            // 
-            // txtNgaybatdau
-            // 
-            this.txtNgaybatdau.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNgaybatdau.Location = new System.Drawing.Point(170, 229);
-            this.txtNgaybatdau.Name = "txtNgaybatdau";
-            this.txtNgaybatdau.Size = new System.Drawing.Size(256, 27);
-            this.txtNgaybatdau.TabIndex = 1;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(16, 232);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(117, 22);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Ngày bắt đầu";
             // 
             // frmThutiennha
             // 

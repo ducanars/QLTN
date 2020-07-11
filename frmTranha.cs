@@ -27,6 +27,10 @@ namespace QLTN
             cmbMasothue.Text = "";
             dtpNgaytra.ValueChanged += dtpNgaytra_ValueChanged;
             cmbMasothue.SelectedIndexChanged += cmbMasothue_SelectedIndexChanged;
+            txtNgayketthuc.Enabled = false;
+            txtTiendatcoc.Enabled = false;
+            txtTiendatcoc.Text = "";
+            txtBoithuong.Text = "";
         }
 
         private void loadDataGridView()

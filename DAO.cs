@@ -13,7 +13,7 @@ namespace QLTN
     class DAO
     {
         public static SqlConnection con;
-        public static string connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=QLTN_BTL;Integrated Security=True";
+        public static string connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=QuanLyThueNha_BTL;Integrated Security=True";
         public static void OpenConnection()
         {
             con = new SqlConnection();

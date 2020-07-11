@@ -32,13 +32,17 @@
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.gridviewBaocaochuathanhtoan = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.gridviewKetqua = new System.Windows.Forms.DataGridView();
             this.Manha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tenkhach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Masothue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tenchunha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gridviewKetqua = new System.Windows.Forms.DataGridView();
+            this.Tenkhach1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Manha1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Masothue1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tenchunha1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridviewBaocaochuathanhtoan)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridviewKetqua)).BeginInit();
@@ -84,6 +88,32 @@
             this.gridviewBaocaochuathanhtoan.Size = new System.Drawing.Size(642, 217);
             this.gridviewBaocaochuathanhtoan.TabIndex = 3;
             // 
+            // Manha
+            // 
+            this.Manha.DataPropertyName = "Manha";
+            this.Manha.HeaderText = "Mã nhà";
+            this.Manha.Name = "Manha";
+            // 
+            // Tenkhach
+            // 
+            this.Tenkhach.DataPropertyName = "Tenkhach";
+            this.Tenkhach.HeaderText = "Tên khách";
+            this.Tenkhach.Name = "Tenkhach";
+            this.Tenkhach.Width = 200;
+            // 
+            // Masothue
+            // 
+            this.Masothue.DataPropertyName = "Masothue";
+            this.Masothue.HeaderText = "Mã số thuê";
+            this.Masothue.Name = "Masothue";
+            // 
+            // Tenchunha
+            // 
+            this.Tenchunha.DataPropertyName = "Tenchunha";
+            this.Tenchunha.HeaderText = "Tên chủ nhà";
+            this.Tenchunha.Name = "Tenchunha";
+            this.Tenchunha.Width = 200;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -111,36 +141,41 @@
             // 
             this.gridviewKetqua.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gridviewKetqua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridviewKetqua.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Tenkhach1,
+            this.Manha1,
+            this.Masothue1,
+            this.Tenchunha1});
             this.gridviewKetqua.Location = new System.Drawing.Point(177, 467);
             this.gridviewKetqua.Name = "gridviewKetqua";
             this.gridviewKetqua.Size = new System.Drawing.Size(642, 150);
             this.gridviewKetqua.TabIndex = 5;
             // 
-            // Manha
+            // Tenkhach1
             // 
-            this.Manha.DataPropertyName = "Manha";
-            this.Manha.HeaderText = "Mã nhà";
-            this.Manha.Name = "Manha";
+            this.Tenkhach1.DataPropertyName = "Tenkhach";
+            this.Tenkhach1.HeaderText = "Tên khách";
+            this.Tenkhach1.Name = "Tenkhach1";
+            this.Tenkhach1.Width = 200;
             // 
-            // Tenkhach
+            // Manha1
             // 
-            this.Tenkhach.DataPropertyName = "Tenkhach";
-            this.Tenkhach.HeaderText = "Tên khách";
-            this.Tenkhach.Name = "Tenkhach";
-            this.Tenkhach.Width = 200;
+            this.Manha1.DataPropertyName = "Manha";
+            this.Manha1.HeaderText = "Mã nhà";
+            this.Manha1.Name = "Manha1";
             // 
-            // Masothue
+            // Masothue1
             // 
-            this.Masothue.DataPropertyName = "Masothue";
-            this.Masothue.HeaderText = "Mã số thuê";
-            this.Masothue.Name = "Masothue";
+            this.Masothue1.DataPropertyName = "Masothue";
+            this.Masothue1.HeaderText = "Mã số thuê";
+            this.Masothue1.Name = "Masothue1";
             // 
-            // Tenchunha
+            // Tenchunha1
             // 
-            this.Tenchunha.DataPropertyName = "Tenchunha";
-            this.Tenchunha.HeaderText = "Tên chủ nhà";
-            this.Tenchunha.Name = "Tenchunha";
-            this.Tenchunha.Width = 200;
+            this.Tenchunha1.DataPropertyName = "Tenchunha";
+            this.Tenchunha1.HeaderText = "Tên chủ nhà";
+            this.Tenchunha1.Name = "Tenchunha1";
+            this.Tenchunha1.Width = 200;
             // 
             // FrmNhaChuaThanhToan
             // 
@@ -173,5 +208,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Tenkhach;
         private System.Windows.Forms.DataGridViewTextBoxColumn Masothue;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tenchunha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tenkhach1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Manha1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Masothue1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tenchunha1;
     }
 }

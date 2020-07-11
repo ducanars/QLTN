@@ -41,11 +41,10 @@ namespace QLTN
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string str = DateTime.Now.ToString().Trim();
-            str = str.Substring(3, 2);
-            string str1 = DateTime.Now.ToString().Trim();
-            str1 = str1.Substring(6, 4);          
+            str = str.Substring(3, 2);      
             string sql;
-            sql = "select a.Makhach,a.Manha from tblThueNha as a join tblThuTienNha as b on a.Masothue=b.Masothue where b.Nam = 2020  and b.Thang not like '%" + str.ToString() + "%' ";
+            sql = "select distinct a.Manha,c.Tenchunha,b.Tenkhach,a.Masothue from tblThueNha as a join tblKhachThue as b on a.Makhach=b.Makhach join tblDanhMucNha as c on a.Manha=c.Manha" +
+                "join tblThuTienNha as d on a.Masothue=d.Masothue where d.Nam = 2020  and d.Thang not like '%" + str.ToString() + "%' ";
             SqlDataAdapter adapter = new SqlDataAdapter(sql, DAO.con);
             DataTable table = new DataTable();
             adapter.Fill(table);

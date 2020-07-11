@@ -28,6 +28,7 @@ namespace QLTN
             cmbTaisan.Text = "";
             cmbManha.Text = "";
             txtTenchunha.Text = "";
+            txtTenchunha.Enabled = false;
         }
 
         private void loadDataGridView()
